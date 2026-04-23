@@ -1,0 +1,1255 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exploración Inicial &#8212; Análisis de Comparendos Electrónicos en Barranquilla</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exploracion_inicial';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Análisis Univariado" href="analisis_univariado.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Análisis de Comparendos Electrónicos en Barranquilla - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Análisis de Comparendos Electrónicos en Barranquilla - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exploración Inicial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analisis_univariado.html">Análisis Univariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analisis_bivariado.html">Análisis Bivariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="georreferenciacion.html">Georreferenciación</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/edit/master/docs/exploracion_inicial.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fexploracion_inicial.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/exploracion_inicial.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exploración Inicial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-librerias">Carga de Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-del-dataframe">Carga del DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-inicial-del-dataframe">Visualización Inicial del DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-general-del-dataframe">Información General del DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-la-hora-en-las-fechas">Análisis de la Hora en las Fechas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-de-las-fechas-a-formato-datetime">Conversión de las Fechas a Formato datetime</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-valores-nulos">Análisis de los Valores Nulos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-codigos-de-infraccion-asociados-a-valores-nulos">Análisis de los Códigos de Infracción Asociados a Valores Nulos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-tipos-de-camara-asociados-a-valores-nulos">Análisis de los Tipos de Cámara Asociados a Valores Nulos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-registros-con-valores-nulos">Visualización de Registros con Valores Nulos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correccion-de-valores-nulos">Corrección de Valores Nulos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-valores-unicos">Análisis de Valores Únicos</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exploracion-inicial">
+<h1>Exploración Inicial<a class="headerlink" href="#exploracion-inicial" title="Link to this heading">#</a></h1>
+<p>Se realiza una primera aproximación a los datos con el objetivo de comprender su estructura general, identificar el volumen de registros, examinar las variables disponibles y sus tipos de datos, así como detectar posibles inconsistencias o valores faltantes que requieran atención antes de proceder con las etapas de preprocesamiento y análisis exploratorio.</p>
+<section id="carga-de-librerias">
+<h2>Carga de Librerías<a class="headerlink" href="#carga-de-librerias" title="Link to this heading">#</a></h2>
+<p>Se importan las librerías necesarias para las etapas de análisis de datos. Se utiliza <code class="docutils literal notranslate"><span class="pre">pandas</span></code> y <code class="docutils literal notranslate"><span class="pre">numpy</span></code> para la manipulación y transformación de datos, junto con <code class="docutils literal notranslate"><span class="pre">IPython.display</span></code> para la visualización de resultados en el entorno interactivo. Además, se suprimen los mensajes de advertencia (<code class="docutils literal notranslate"><span class="pre">warnings</span></code>) con el fin de mantener una salida limpia y centrada en los resultados del análisis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="carga-del-dataframe">
+<h2>Carga del DataFrame<a class="headerlink" href="#carga-del-dataframe" title="Link to this heading">#</a></h2>
+<p>Se carga el archivo CSV que contiene los datos de comparendos electrónicos utilizando la función <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> de la librería pandas, y se almacena en el DataFrame <code class="docutils literal notranslate"><span class="pre">df_comparendos_electronicos</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_comparendos_electronicos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;C:/Users/david/Documents/seminario_investigativo/comparendos_electronicos.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizacion-inicial-del-dataframe">
+<h2>Visualización Inicial del DataFrame<a class="headerlink" href="#visualizacion-inicial-del-dataframe" title="Link to this heading">#</a></h2>
+<p>Se muestra una vista previa de las primeras filas del DataFrame <code class="docutils literal notranslate"><span class="pre">df_comparendos_electronicos</span></code> utilizando el método <code class="docutils literal notranslate"><span class="pre">head()</span></code>, lo que permite inspeccionar la estructura y los primeros registros de los datos cargados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_comparendos_electronicos</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fecha_comparendo</th>
+      <th>COD_INFRACCION</th>
+      <th>DESC_INFRACCION</th>
+      <th>TIPO_INFRACCION</th>
+      <th>SERVICIO_VEHICULO_INFRACTOR</th>
+      <th>CLASE_VEHICULO_INFRACTOR</th>
+      <th>CANTIDAD_INFRACCIONES</th>
+      <th>Tipo Camara</th>
+      <th>Camara_y_direccion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018 Jan 01 12:00:00 AM</td>
+      <td>C29</td>
+      <td>Conducir un vehículo a velocidad superior a la...</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>AUTOMOVIL</td>
+      <td>4</td>
+      <td>Fijo</td>
+      <td>AVENIDA CIRCUNVALAR CON CARRERA 31</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018 Jan 01 12:00:00 AM</td>
+      <td>C29</td>
+      <td>Conducir un vehículo a velocidad superior a la...</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>CAMIONETA</td>
+      <td>2</td>
+      <td>Fijo</td>
+      <td>AVENIDA CIRCUNVALAR CON CARRERA 31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018 Jan 01 12:00:00 AM</td>
+      <td>C29</td>
+      <td>Conducir un vehículo a velocidad superior a la...</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>CAMIONETA</td>
+      <td>1</td>
+      <td>Fijo</td>
+      <td>AVENIDA CIRCUNVALAR CON CARRERA 31</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018 Jan 01 12:00:00 AM</td>
+      <td>C29</td>
+      <td>Conducir un vehículo a velocidad superior a la...</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>AUTOMOVIL</td>
+      <td>2</td>
+      <td>Fijo</td>
+      <td>AVENIDA CIRCUNVALAR CON CARRERA 9G</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2018 Jan 01 12:00:00 AM</td>
+      <td>C29</td>
+      <td>Conducir un vehículo a velocidad superior a la...</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>CAMIONETA</td>
+      <td>3</td>
+      <td>Fijo</td>
+      <td>AVENIDA CIRCUNVALAR CON CARRERA 9G</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Se presentan las últimas filas del DataFrame <code class="docutils literal notranslate"><span class="pre">df_comparendos_electronicos</span></code> mediante el método <code class="docutils literal notranslate"><span class="pre">tail()</span></code>, permitiendo verificar los registros finales y confirmar la correcta carga completa de los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_comparendos_electronicos</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fecha_comparendo</th>
+      <th>COD_INFRACCION</th>
+      <th>DESC_INFRACCION</th>
+      <th>TIPO_INFRACCION</th>
+      <th>SERVICIO_VEHICULO_INFRACTOR</th>
+      <th>CLASE_VEHICULO_INFRACTOR</th>
+      <th>CANTIDAD_INFRACCIONES</th>
+      <th>Tipo Camara</th>
+      <th>Camara_y_direccion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>339611</th>
+      <td>2025 Dec 31 12:00:00 AM</td>
+      <td>C29</td>
+      <td>Conducir un vehículo a velocidad superior a la...</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>CAMPERO</td>
+      <td>1</td>
+      <td>Fijo</td>
+      <td>CARRERA 46 CON CALLE 100</td>
+    </tr>
+    <tr>
+      <th>339612</th>
+      <td>2025 Dec 31 12:00:00 AM</td>
+      <td>C29</td>
+      <td>Conducir un vehículo a velocidad superior a la...</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>CAMIONETA</td>
+      <td>1</td>
+      <td>Fijo</td>
+      <td>CARRERA 53 ENTRE CALLE 104 Y 106</td>
+    </tr>
+    <tr>
+      <th>339613</th>
+      <td>2025 Dec 31 12:00:00 AM</td>
+      <td>D04</td>
+      <td>No detenerse ante luz roja o amarilla de semáf...</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>MOTOCICLETA</td>
+      <td>2</td>
+      <td>Fijo</td>
+      <td>CALLE 45 CON CARRERA 21 SENTIDO NORTE-SUR</td>
+    </tr>
+    <tr>
+      <th>339614</th>
+      <td>2025 Dec 31 12:00:00 AM</td>
+      <td>D04</td>
+      <td>No detenerse ante luz roja o amarilla de semáf...</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>CAMPERO</td>
+      <td>1</td>
+      <td>Fijo</td>
+      <td>CARRERA 53 ENTRE CALLE 104 Y 106</td>
+    </tr>
+    <tr>
+      <th>339615</th>
+      <td>2025 Dec 31 12:00:00 AM</td>
+      <td>D04</td>
+      <td>No detenerse ante luz roja o amarilla de semáf...</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>MOTOCICLETA</td>
+      <td>3</td>
+      <td>Fijo</td>
+      <td>CARRERA 53 ENTRE CALLE 104 Y 106</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="informacion-general-del-dataframe">
+<h2>Información General del DataFrame<a class="headerlink" href="#informacion-general-del-dataframe" title="Link to this heading">#</a></h2>
+<p>Se utiliza el método <code class="docutils literal notranslate"><span class="pre">info()</span></code> para obtener un resumen de la estructura del DataFrame, incluyendo el número de entradas, los nombres de las columnas, los tipos de datos y la cantidad de valores no nulos, lo que facilita la identificación de posibles valores faltantes y la verificación de la integridad de los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_comparendos_electronicos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 339616 entries, 0 to 339615
+Data columns (total 9 columns):
+ #   Column                       Non-Null Count   Dtype 
+---  ------                       --------------   ----- 
+ 0   fecha_comparendo             339616 non-null  object
+ 1   COD_INFRACCION               339616 non-null  object
+ 2   DESC_INFRACCION              339052 non-null  object
+ 3   TIPO_INFRACCION              339616 non-null  object
+ 4   SERVICIO_VEHICULO_INFRACTOR  339616 non-null  object
+ 5   CLASE_VEHICULO_INFRACTOR     339616 non-null  object
+ 6   CANTIDAD_INFRACCIONES        339616 non-null  int64 
+ 7   Tipo Camara                  339616 non-null  object
+ 8   Camara_y_direccion           339616 non-null  object
+dtypes: int64(1), object(8)
+memory usage: 23.3+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<p>El DataFrame <code class="docutils literal notranslate"><span class="pre">df_comparendos_electronicos</span></code> contiene <strong>339,616 registros</strong> (desde el índice 0 hasta el 339,615) y está compuesto por <strong>9 columnas</strong>. Las variables son mayoritariamente de tipo <code class="docutils literal notranslate"><span class="pre">object</span></code> (categóricas o texto), con una única columna numérica (<code class="docutils literal notranslate"><span class="pre">CANTIDAD_INFRACCIONES</span></code>) de tipo <code class="docutils literal notranslate"><span class="pre">int64</span></code>.</p>
+<p><strong>Hallazgos:</strong></p>
+<ul class="simple">
+<li><p><strong>Volumen de datos</strong>: Se cuenta con una base de datos robusta de más de 339 mil filas, lo que permite realizar análisis estadísticos representativos.</p></li>
+<li><p><strong>Valores nulos</strong>: La columna <code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code> presenta <strong>564 valores nulos</strong> (339,616 - 339,052), lo que indica que en algunos registros no se especificó la descripción de la infracción. El resto de las columnas están completas al 100%.</p></li>
+<li><p><strong>Tipos de datos</strong>: Las columna de fechas (<code class="docutils literal notranslate"><span class="pre">fecha_comparendo</span></code>) está almacenada como <code class="docutils literal notranslate"><span class="pre">object</span></code>, por lo que se procederá a convertirlas a tipo <code class="docutils literal notranslate"><span class="pre">datetime</span></code> para facilitar análisis temporales.</p></li>
+</ul>
+<section id="analisis-de-la-hora-en-las-fechas">
+<h3>Análisis de la Hora en las Fechas<a class="headerlink" href="#analisis-de-la-hora-en-las-fechas" title="Link to this heading">#</a></h3>
+<p>Se extraen y muestran las horas únicas presentes en la columna <code class="docutils literal notranslate"><span class="pre">fecha_comparendo</span></code>, con el fin de confirmar que todos los registros contienen la misma hora (12:00:00 AM) y justificar así la normalización realizada posteriormente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Horas únicas: </span><span class="si">{</span><span class="n">df_comparendos_electronicos</span><span class="p">[</span><span class="s1">&#39;fecha_comparendo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Horas únicas: [&#39;12:00:00&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="conversion-de-las-fechas-a-formato-datetime">
+<h3>Conversión de las Fechas a Formato datetime<a class="headerlink" href="#conversion-de-las-fechas-a-formato-datetime" title="Link to this heading">#</a></h3>
+<p>Se convierte la columna <code class="docutils literal notranslate"><span class="pre">fecha_comparendo</span></code> al tipo <code class="docutils literal notranslate"><span class="pre">datetime</span></code> utilizando el formato especificado (<code class="docutils literal notranslate"><span class="pre">'%Y</span> <span class="pre">%b</span> <span class="pre">%d</span> <span class="pre">%I:%M:%S</span> <span class="pre">%p'</span></code>), normalizando la hora a medianoche con el método <code class="docutils literal notranslate"><span class="pre">.dt.normalize()</span></code> para eliminar la información horaria y trabajar únicamente con fechas, dado que todos los registros contienen la hora de 12:00:00 AM. Posteriormente, se imprime el tipo de dato resultante para verificar la correcta conversión.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_comparendos_electronicos</span><span class="p">[</span><span class="s1">&#39;fecha_comparendo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_comparendos_electronicos</span><span class="p">[</span><span class="s1">&#39;fecha_comparendo&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y %b </span><span class="si">%d</span><span class="s1"> %I:%M:%S %p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_comparendos_electronicos</span><span class="p">[</span><span class="s1">&#39;fecha_comparendo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="analisis-de-los-valores-nulos">
+<h2>Análisis de los Valores Nulos<a class="headerlink" href="#analisis-de-los-valores-nulos" title="Link to this heading">#</a></h2>
+<p>Se construye una tabla que resume la cantidad y el porcentaje de valores nulos para cada columna del DataFrame, ordenando los resultados de mayor a menor porcentaje de nulos. Aunque previamente con el método <code class="docutils literal notranslate"><span class="pre">.info()</span></code> se identificó que la única columna con valores nulos era <code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code>, este análisis se realiza para todas las variables con el fin de tener constancia y seguridad de la completitud del Dataset, confirmando nuevamente que no existen valores faltantes en otras columnas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla_nulos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Nulos&#39;</span><span class="p">:</span> <span class="n">df_comparendos_electronicos</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+    <span class="s1">&#39;% Nulos&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">df_comparendos_electronicos</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_comparendos_electronicos</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;% Nulos&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">tabla_nulos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nulos</th>
+      <th>% Nulos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>DESC_INFRACCION</th>
+      <td>564</td>
+      <td>0.1661</td>
+    </tr>
+    <tr>
+      <th>fecha_comparendo</th>
+      <td>0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>COD_INFRACCION</th>
+      <td>0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>TIPO_INFRACCION</th>
+      <td>0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>SERVICIO_VEHICULO_INFRACTOR</th>
+      <td>0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>CLASE_VEHICULO_INFRACTOR</th>
+      <td>0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>CANTIDAD_INFRACCIONES</th>
+      <td>0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>Tipo Camara</th>
+      <td>0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>Camara_y_direccion</th>
+      <td>0</td>
+      <td>0.0000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Los resultados confirman que <strong>únicamente la columna <code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code> presenta valores nulos</strong>, con un total de <strong>564 registros</strong> que equivalen al <strong>0.17%</strong>. El resto de las ocho columnas restantes no contienen ningún valor nulo, lo que representa una tasa de completitud del <strong>99.83%</strong> en el dataset.</p>
+<p><strong>Hallazgos:</strong></p>
+<ul class="simple">
+<li><p><strong>Bajo porcentaje de nulos</strong>: Con solo el 0.17% de datos faltantes en una sola columna, la calidad general de los datos es excelente, lo que minimiza la necesidad de aplicar técnicas de imputación complejas.</p></li>
+<li><p><strong>Impacto en el análisis</strong>: La columna <code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code> contiene la descripción textual de la infracción. Dado que existe la columna <code class="docutils literal notranslate"><span class="pre">COD_INFRACCION</span></code> (completamente poblada) que identifica cada infracción con un código único, los valores nulos en la descripción no representan una pérdida crítica de información, ya que el código puede utilizarse para obtener la descripción.</p></li>
+</ul>
+<section id="analisis-de-los-codigos-de-infraccion-asociados-a-valores-nulos">
+<h3>Análisis de los Códigos de Infracción Asociados a Valores Nulos<a class="headerlink" href="#analisis-de-los-codigos-de-infraccion-asociados-a-valores-nulos" title="Link to this heading">#</a></h3>
+<p>Se filtran los registros que presentan valores nulos en la columna <code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code> y se muestra la frecuencia de los códigos de infracción correspondientes, con el objetivo de identificar si los valores faltantes están concentrados en un código específico o si se distribuyen entre múltiples infracciones.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nulos_desc_infraccion</span> <span class="o">=</span> <span class="n">df_comparendos_electronicos</span><span class="p">[</span><span class="n">df_comparendos_electronicos</span><span class="p">[</span><span class="s1">&#39;DESC_INFRACCION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">nulos_desc_infraccion</span><span class="p">[</span><span class="s1">&#39;COD_INFRACCION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>COD_INFRACCION
+C14    564
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="analisis-de-los-tipos-de-camara-asociados-a-valores-nulos">
+<h3>Análisis de los Tipos de Cámara Asociados a Valores Nulos<a class="headerlink" href="#analisis-de-los-tipos-de-camara-asociados-a-valores-nulos" title="Link to this heading">#</a></h3>
+<p>Se examina la frecuencia de los tipos de cámara asociados a los registros con valores nulos en <code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code>, con el fin de identificar si existe una relación entre el tipo de cámara y la ausencia de descripción.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nulos_desc_infraccion</span><span class="p">[</span><span class="s1">&#39;Tipo Camara&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tipo Camara
+Carril Bus    564
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizacion-de-registros-con-valores-nulos">
+<h3>Visualización de Registros con Valores Nulos<a class="headerlink" href="#visualizacion-de-registros-con-valores-nulos" title="Link to this heading">#</a></h3>
+<p>Posteriormente, se muestran las primeras filas de los registros filtrados que corresponden al código de infracción C14 y que carecen de descripción, con el propósito de examinar el contexto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nulos_desc_infraccion</span><span class="p">[</span><span class="n">nulos_desc_infraccion</span><span class="p">[</span><span class="s1">&#39;COD_INFRACCION&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;C14&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fecha_comparendo</th>
+      <th>COD_INFRACCION</th>
+      <th>DESC_INFRACCION</th>
+      <th>TIPO_INFRACCION</th>
+      <th>SERVICIO_VEHICULO_INFRACTOR</th>
+      <th>CLASE_VEHICULO_INFRACTOR</th>
+      <th>CANTIDAD_INFRACCIONES</th>
+      <th>Tipo Camara</th>
+      <th>Camara_y_direccion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>332474</th>
+      <td>2025-10-21</td>
+      <td>C14</td>
+      <td>NaN</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>AUTOMOVIL</td>
+      <td>1</td>
+      <td>Carril Bus</td>
+      <td>CALLE 45 CON CARRERA 1E SENTIDO NORTE-SUR</td>
+    </tr>
+    <tr>
+      <th>332475</th>
+      <td>2025-10-21</td>
+      <td>C14</td>
+      <td>NaN</td>
+      <td>TRÁNSITO</td>
+      <td>PUBLICO</td>
+      <td>AUTOMOVIL</td>
+      <td>1</td>
+      <td>Carril Bus</td>
+      <td>CALLE 45 CON CARRERA 1E SENTIDO NORTE-SUR</td>
+    </tr>
+    <tr>
+      <th>332476</th>
+      <td>2025-10-21</td>
+      <td>C14</td>
+      <td>NaN</td>
+      <td>TRÁNSITO</td>
+      <td>PUBLICO</td>
+      <td>AUTOMOVIL</td>
+      <td>2</td>
+      <td>Carril Bus</td>
+      <td>CALLE 45 CON CARRERA 1E SENTIDO SUR-NORTE</td>
+    </tr>
+    <tr>
+      <th>332477</th>
+      <td>2025-10-21</td>
+      <td>C14</td>
+      <td>NaN</td>
+      <td>TRÁNSITO</td>
+      <td>PUBLICO</td>
+      <td>CAMIONETA</td>
+      <td>1</td>
+      <td>Carril Bus</td>
+      <td>CALLE 45 CON CARRERA 1E SENTIDO SUR-NORTE</td>
+    </tr>
+    <tr>
+      <th>332478</th>
+      <td>2025-10-21</td>
+      <td>C14</td>
+      <td>NaN</td>
+      <td>TRÁNSITO</td>
+      <td>PARTICULAR</td>
+      <td>AUTOMOVIL</td>
+      <td>1</td>
+      <td>Carril Bus</td>
+      <td>CALLE 70 CON CARRERA 46 SENTIDO NORTE-SUR</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Explicación</strong>:</p>
+<p>La ausencia de descripción para el código C14 se explica porque este tipo de infracción comenzó a operar a partir del <strong>17 de octubre de 2025</strong> en la ciudad de <strong>Barranquilla</strong>, específicamente mediante el sistema de cámaras tipo <strong>Carril Bus</strong>. Es por esta razón que los primeros registros en la base de datos aparecen a partir del <strong>21 de octubre de 2025</strong>, coincidiendo con el inicio de operación de este sistema de vigilancia.</p>
+<p><strong>Fuente:</strong> <a class="reference external" href="https://barranquilla.gov.co/transito/desde-el-9-de-octubre-camaras-de-fotodeteccion-en-carriles-exclusivos-de-transmetro">https://barranquilla.gov.co/transito/desde-el-9-de-octubre-camaras-de-fotodeteccion-en-carriles-exclusivos-de-transmetro</a></p>
+<hr class="docutils" />
+<p><strong>Hallazgos</strong>:</p>
+<ul class="simple">
+<li><p><strong>Novedad del código</strong>: Al tratarse de una infracción recientemente implementada la descripción asociada al código C14 no ha sido cargada en la base de datos durante el período inicial de operación.</p></li>
+<li><p><strong>Consistencia del patrón</strong>: Todos los registros con código C14 comparten características homogéneas (cámaras Carril Bus, fechas posteriores al inicio de operación), lo que confirma que los valores nulos responden a un fenómeno sistemático relacionado con la incorporación de este nuevo tipo de infracción.</p></li>
+</ul>
+<p>Los valores nulos en <code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code> para el código C14 no representan una inconsistencia en los datos, sino la incorporación de un nuevo tipo de infracción cuya descripción aún no había sido registrada en el sistema durante el período inicial de operación de las cámaras Carril Bus en Barranquilla.</p>
+</section>
+<section id="correccion-de-valores-nulos">
+<h3>Corrección de Valores Nulos<a class="headerlink" href="#correccion-de-valores-nulos" title="Link to this heading">#</a></h3>
+<p>Se rellenan los valores nulos de la columna <code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code> con la descripción correspondiente al código C14, obtenida del sitio web oficial del Tránsito del Atlántico. Según esta fuente, la infracción C14 corresponde a <strong>“Transitar por sitios restringidos o en horas prohibidas por la autoridad competente”</strong>. Esta corrección se aplica exclusivamente a los 564 registros que presentaban valores nulos, asociados a las nuevas cámaras tipo Carril Bus implementadas en Barranquilla a partir del 17 de octubre de 2025.</p>
+<p><strong>Fuente:</strong> <a class="reference external" href="https://transitodelatlantico.gov.co/valor-de-multas-de-transito/">https://transitodelatlantico.gov.co/valor-de-multas-de-transito/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_comparendos_electronicos</span><span class="p">[</span><span class="s1">&#39;DESC_INFRACCION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_comparendos_electronicos</span><span class="p">[</span><span class="s1">&#39;DESC_INFRACCION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;Transitar por sitios restringidos o en horas prohibidas por la autoridad competente&quot;</span><span class="p">)</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total de valores nulos en el DataFrame: </span><span class="si">{</span><span class="n">df_comparendos_electronicos</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total de valores nulos en el DataFrame: 0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="analisis-de-valores-unicos">
+<h2>Análisis de Valores Únicos<a class="headerlink" href="#analisis-de-valores-unicos" title="Link to this heading">#</a></h2>
+<p>Se construye una tabla que muestra para cada columna del DataFrame el tipo de dato y la cantidad de valores únicos presentes, ordenando los resultados de mayor a menor número de valores únicos. Este análisis permite identificar la diversidad de categorías en las variables y evaluar la variabilidad de los datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tabla_unicos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Variable&#39;</span><span class="p">:</span> <span class="n">df_comparendos_electronicos</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+    <span class="s1">&#39;Tipo de Dato&#39;</span><span class="p">:</span> <span class="n">df_comparendos_electronicos</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="s1">&#39;Valores Únicos&#39;</span><span class="p">:</span> <span class="n">df_comparendos_electronicos</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Valores Únicos&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">tabla_unicos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Variable</th>
+      <th>Tipo de Dato</th>
+      <th>Valores Únicos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>fecha_comparendo</td>
+      <td>datetime64[ns]</td>
+      <td>2904</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CANTIDAD_INFRACCIONES</td>
+      <td>int64</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Camara_y_direccion</td>
+      <td>object</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CLASE_VEHICULO_INFRACTOR</td>
+      <td>object</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>COD_INFRACCION</td>
+      <td>object</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>DESC_INFRACCION</td>
+      <td>object</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>SERVICIO_VEHICULO_INFRACTOR</td>
+      <td>object</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Tipo Camara</td>
+      <td>object</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>TIPO_INFRACCION</td>
+      <td>object</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Variables con alta cardinalidad:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">fecha_comparendo</span></code></strong>: Con 2,904 valores únicos, es la variable con mayor diversidad, lo que era de esperarse al tratarse de una serie temporal que abarca múltiples fechas. Esta alta cardinalidad permite realizar análisis de tendencias temporales con distintas agrupaciones.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">CANTIDAD_INFRACCIONES</span></code></strong>: Presenta 64 valores únicos, lo que indica que existen registros con diferentes números de infracciones por comparendo.</p></li>
+</ul>
+<p><strong>Variables con cardinalidad media:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Camara_y_direccion</span></code></strong>: Con 56 valores únicos, muestra una variedad considerable de ubicaciones de cámaras, lo que permite análisis geográficos detallados de la ocurrencia de infracciones.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">CLASE_VEHICULO_INFRACTOR</span></code></strong>: Con 14 categorías, refleja una clasificación detallada de los tipos de vehículos involucrados en las infracciones.</p></li>
+</ul>
+<p><strong>Variables con baja cardinalidad:</strong></p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">COD_INFRACCION</span></code></strong> y <strong><code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code></strong>: Ambas presentan 6 valores únicos, lo que confirma la consistencia entre el código y la descripción después de la corrección de nulos. Las 6 categorías corresponden a los diferentes tipos de infracciones registradas en el sistema.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">SERVICIO_VEHICULO_INFRACTOR</span></code></strong>: Con 4 valores únicos, clasifica los vehículos en servicios.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Tipo</span> <span class="pre">Camara</span></code></strong>: Con 3 valores únicos, identifica las diferentes tecnologías o tipos de cámaras utilizadas para la detección.</p></li>
+</ul>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">TIPO_INFRACCION</span></code> presenta <strong>1 único valor</strong>, lo que indica que en todos los registros el tipo de infracción es el mismo. Esto sugiere que la base de datos contiene únicamente infracciones de tránsito, sin presencia de otras categorías.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="analisis_univariado.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Análisis Univariado</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-de-librerias">Carga de Librerías</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-del-dataframe">Carga del DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-inicial-del-dataframe">Visualización Inicial del DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-general-del-dataframe">Información General del DataFrame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-la-hora-en-las-fechas">Análisis de la Hora en las Fechas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-de-las-fechas-a-formato-datetime">Conversión de las Fechas a Formato datetime</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-valores-nulos">Análisis de los Valores Nulos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-codigos-de-infraccion-asociados-a-valores-nulos">Análisis de los Códigos de Infracción Asociados a Valores Nulos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-tipos-de-camara-asociados-a-valores-nulos">Análisis de los Tipos de Cámara Asociados a Valores Nulos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-registros-con-valores-nulos">Visualización de Registros con Valores Nulos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correccion-de-valores-nulos">Corrección de Valores Nulos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-valores-unicos">Análisis de Valores Únicos</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Marquez & Cristian Linero
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
