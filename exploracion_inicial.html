@@ -58,6 +58,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'exploracion_inicial';</script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Análisis Univariado" href="analisis_univariado.html" />
@@ -238,7 +239,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/DAVIDML200555/seminario_investigativo" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -255,7 +256,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/edit/master/docs/exploracion_inicial.ipynb" target="_blank"
+      <li><a href="https://github.com/DAVIDML200555/seminario_investigativo/edit/main/docs/exploracion_inicial.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -272,7 +273,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fexploracion_inicial.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/DAVIDML200555/seminario_investigativo/issues/new?title=Issue%20on%20page%20%2Fexploracion_inicial.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -412,6 +413,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-valores-unicos">Análisis de Valores Únicos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-identificadas">Limitaciones Identificadas</a></li>
 </ul>
             </nav>
         </div>
@@ -1116,6 +1118,15 @@ Name: count, dtype: int64
 </ul>
 <p>La variable <code class="docutils literal notranslate"><span class="pre">TIPO_INFRACCION</span></code> presenta <strong>1 único valor</strong>, lo que indica que en todos los registros el tipo de infracción es el mismo. Esto sugiere que la base de datos contiene únicamente infracciones de tránsito, sin presencia de otras categorías.</p>
 </section>
+<section id="limitaciones-identificadas">
+<h2>Limitaciones Identificadas<a class="headerlink" href="#limitaciones-identificadas" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Ausencia de hora real</strong>: Todos los registros tienen la hora normalizada a <code class="docutils literal notranslate"><span class="pre">12:00:00</span> <span class="pre">AM</span></code>, lo que impide análisis de franjas horarias dentro del día.</p></li>
+<li><p><strong>Sin identificación geográfica precisa</strong>: La dirección de la cámara está en formato texto, no en coordenadas (latitud/longitud), lo que limita análisis espaciales avanzados.</p></li>
+<li><p><strong>Sin información del infractor</strong>: No se incluyen datos como tipo de licencia, género, edad, o reincidencia individual, lo que restringe análisis demográficos.</p></li>
+</ul>
+<p><strong>En resumen</strong>, el dataset presenta una calidad excepcional en términos de completitud y consistencia, con una estructura adecuada para abordar análisis descriptivos, diagnósticos y predictivos relacionados con las infracciones de tránsito detectadas por cámaras electrónicas.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1198,6 +1209,7 @@ Name: count, dtype: int64
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-valores-unicos">Análisis de Valores Únicos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-identificadas">Limitaciones Identificadas</a></li>
 </ul>
   </nav></div>
 
