@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Exploración Inicial &#8212; Análisis de Comparendos Electrónicos en Barranquilla</title>
+    <title>Exploración Inicial &#8212; Análisis y Predicción de Comparendos Electrónicos en Barranquilla</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Análisis Univariado" href="analisis_univariado.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="intro.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="introduccion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -143,7 +143,7 @@
     
   
 
-<a class="navbar-brand logo" href="intro.html">
+<a class="navbar-brand logo" href="introduccion.html">
   
   
   
@@ -154,8 +154,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Análisis de Comparendos Electrónicos en Barranquilla - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Análisis de Comparendos Electrónicos en Barranquilla - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Análisis y Predicción de Comparendos Electrónicos en Barranquilla - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Análisis y Predicción de Comparendos Electrónicos en Barranquilla - Home"/>`);</script>
   
   
 </a></div>
@@ -175,7 +175,7 @@
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
+                <a class="reference internal" href="introduccion.html">
                     <no title>
                 </a>
             </li>
@@ -185,6 +185,7 @@
 <li class="toctree-l1"><a class="reference internal" href="analisis_univariado.html">Análisis Univariado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analisis_bivariado.html">Análisis Bivariado</a></li>
 <li class="toctree-l1"><a class="reference internal" href="georreferenciacion.html">Georreferenciación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="descomposicion_temporal.html">Descomposición Temporal</a></li>
 </ul>
 
     </div>
@@ -401,15 +402,19 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-del-dataframe">Carga del DataFrame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-inicial-del-dataframe">Visualización Inicial del DataFrame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-general-del-dataframe">Información General del DataFrame</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-la-hora-en-las-fechas">Análisis de la Hora en las Fechas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-de-las-fechas-a-formato-datetime">Conversión de las Fechas a Formato datetime</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-la-hora-en-las-fechas">Análisis de la Hora en las Fechas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-de-las-fechas-a-formato-datetime">Conversión de las Fechas a Formato datetime</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-valores-nulos">Análisis de los Valores Nulos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-codigos-de-infraccion-asociados-a-valores-nulos">Análisis de los Códigos de Infracción Asociados a Valores Nulos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-tipos-de-camara-asociados-a-valores-nulos">Análisis de los Tipos de Cámara Asociados a Valores Nulos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-registros-con-valores-nulos">Visualización de Registros con Valores Nulos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correccion-de-valores-nulos">Corrección de Valores Nulos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-registros-con-valores-nulos">Visualización de Registros con Valores Nulos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correccion-de-valores-nulos">Corrección de Valores Nulos</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-valores-unicos">Análisis de Valores Únicos</a></li>
@@ -716,9 +721,8 @@ memory usage: 23.3+ MB
 </div>
 </div>
 </div>
-</section>
 <section id="conversion-de-las-fechas-a-formato-datetime">
-<h3>Conversión de las Fechas a Formato datetime<a class="headerlink" href="#conversion-de-las-fechas-a-formato-datetime" title="Link to this heading">#</a></h3>
+<h4>Conversión de las Fechas a Formato datetime<a class="headerlink" href="#conversion-de-las-fechas-a-formato-datetime" title="Link to this heading">#</a></h4>
 <p>Se convierte la columna <code class="docutils literal notranslate"><span class="pre">fecha_comparendo</span></code> al tipo <code class="docutils literal notranslate"><span class="pre">datetime</span></code> utilizando el formato especificado (<code class="docutils literal notranslate"><span class="pre">'%Y</span> <span class="pre">%b</span> <span class="pre">%d</span> <span class="pre">%I:%M:%S</span> <span class="pre">%p'</span></code>), normalizando la hora a medianoche con el método <code class="docutils literal notranslate"><span class="pre">.dt.normalize()</span></code> para eliminar la información horaria y trabajar únicamente con fechas, dado que todos los registros contienen la hora de 12:00:00 AM. Posteriormente, se imprime el tipo de dato resultante para verificar la correcta conversión.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -734,6 +738,7 @@ memory usage: 23.3+ MB
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="analisis-de-los-valores-nulos">
@@ -981,9 +986,8 @@ Name: count, dtype: int64
 <li><p><strong>Consistencia del patrón</strong>: Todos los registros con código C14 comparten características homogéneas (cámaras Carril Bus, fechas posteriores al inicio de operación), lo que confirma que los valores nulos responden a un fenómeno sistemático relacionado con la incorporación de este nuevo tipo de infracción.</p></li>
 </ul>
 <p>Los valores nulos en <code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code> para el código C14 no representan una inconsistencia en los datos, sino la incorporación de un nuevo tipo de infracción cuya descripción aún no había sido registrada en el sistema durante el período inicial de operación de las cámaras Carril Bus en Barranquilla.</p>
-</section>
 <section id="correccion-de-valores-nulos">
-<h3>Corrección de Valores Nulos<a class="headerlink" href="#correccion-de-valores-nulos" title="Link to this heading">#</a></h3>
+<h4>Corrección de Valores Nulos<a class="headerlink" href="#correccion-de-valores-nulos" title="Link to this heading">#</a></h4>
 <p>Se rellenan los valores nulos de la columna <code class="docutils literal notranslate"><span class="pre">DESC_INFRACCION</span></code> con la descripción correspondiente al código C14, obtenida del sitio web oficial del Tránsito del Atlántico. Según esta fuente, la infracción C14 corresponde a <strong>“Transitar por sitios restringidos o en horas prohibidas por la autoridad competente”</strong>. Esta corrección se aplica exclusivamente a los 564 registros que presentaban valores nulos, asociados a las nuevas cámaras tipo Carril Bus implementadas en Barranquilla a partir del 17 de octubre de 2025.</p>
 <p><strong>Fuente:</strong> <a class="reference external" href="https://transitodelatlantico.gov.co/valor-de-multas-de-transito/">https://transitodelatlantico.gov.co/valor-de-multas-de-transito/</a></p>
 <div class="cell docutils container">
@@ -1000,6 +1004,7 @@ Name: count, dtype: int64
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="analisis-de-valores-unicos">
@@ -1160,7 +1165,7 @@ Name: count, dtype: int64
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="introduccion.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -1197,15 +1202,19 @@ Name: count, dtype: int64
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#carga-del-dataframe">Carga del DataFrame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-inicial-del-dataframe">Visualización Inicial del DataFrame</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#informacion-general-del-dataframe">Información General del DataFrame</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-la-hora-en-las-fechas">Análisis de la Hora en las Fechas</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-de-las-fechas-a-formato-datetime">Conversión de las Fechas a Formato datetime</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-la-hora-en-las-fechas">Análisis de la Hora en las Fechas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion-de-las-fechas-a-formato-datetime">Conversión de las Fechas a Formato datetime</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-valores-nulos">Análisis de los Valores Nulos</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-codigos-de-infraccion-asociados-a-valores-nulos">Análisis de los Códigos de Infracción Asociados a Valores Nulos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-los-tipos-de-camara-asociados-a-valores-nulos">Análisis de los Tipos de Cámara Asociados a Valores Nulos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-registros-con-valores-nulos">Visualización de Registros con Valores Nulos</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correccion-de-valores-nulos">Corrección de Valores Nulos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizacion-de-registros-con-valores-nulos">Visualización de Registros con Valores Nulos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correccion-de-valores-nulos">Corrección de Valores Nulos</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-de-valores-unicos">Análisis de Valores Únicos</a></li>
