@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -513,7 +513,6 @@ document.write(`
 <span class="n">df_comparendos_electronicos_copy</span><span class="p">[</span><span class="s1">&#39;año_mes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_comparendos_electronicos_copy</span><span class="p">[</span><span class="s1">&#39;fecha_comparendo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">preparar_serie_mensual</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">codigo_infraccion</span><span class="p">):</span>
-
     <span class="n">infracciones_por_mes</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;año_mes&#39;</span><span class="p">,</span> <span class="s1">&#39;COD_INFRACCION&#39;</span><span class="p">])[</span><span class="s1">&#39;CANTIDAD_INFRACCIONES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
     
     <span class="n">serie</span> <span class="o">=</span> <span class="n">infracciones_por_mes</span><span class="p">[</span><span class="n">infracciones_por_mes</span><span class="p">[</span><span class="s1">&#39;COD_INFRACCION&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">codigo_infraccion</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -565,7 +564,6 @@ Test: 2025-01 a 2025-12 (12 meses)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">time_series_cv_manual</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">n_ventanas</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">horizonte</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
-
     <span class="n">ventanas</span> <span class="o">=</span> <span class="p">[]</span>
     
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_ventanas</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
@@ -599,13 +597,19 @@ Fold 4: Train 2018-01 a 2023-12 (72m) -&gt; Val 2024-01 a 2024-12 (12m)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluar_holt_winters</span><span class="p">(</span><span class="n">train_fold</span><span class="p">,</span> <span class="n">val_fold</span><span class="p">,</span> <span class="n">estacionalidad</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluar_holt_amortiguado</span><span class="p">(</span><span class="n">train_fold</span><span class="p">,</span> <span class="n">val_fold</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ajusta un modelo Holt con tendencia aditiva y amortiguamiento,</span>
+<span class="sd">    sin componente estacional, de acuerdo con los hallazgos de la</span>
+<span class="sd">    descomposición: tendencia significativa decreciente y estacionalidad débil.</span>
+<span class="sd">    El amortiguamiento busca capturar la posible atenuación de la tendencia</span>
+<span class="sd">    y reducir la autocorrelación residual.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">modelo</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span>
         <span class="n">train_fold</span><span class="p">,</span>
-        <span class="n">seasonal_periods</span><span class="o">=</span><span class="n">estacionalidad</span><span class="p">,</span>
-        <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
+        <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>          
+        <span class="n">seasonal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>        
+        <span class="n">damped_trend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">initialization_method</span><span class="o">=</span><span class="s1">&#39;estimated&#39;</span>
     <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
     
@@ -638,13 +642,13 @@ Fold 4: Train 2018-01 a 2023-12 (72m) -&gt; Val 2024-01 a 2024-12 (12m)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultados_cv_c29</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validación cruzada - Holt-Winters Aditivo (C29)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validación cruzada - Holt con tendencia amortiguada (C29)&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">train_fold</span><span class="p">,</span> <span class="n">val_fold</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ventanas_c29</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Fold </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> ---&quot;</span><span class="p">)</span>
     
-    <span class="n">predicciones</span><span class="p">,</span> <span class="n">metricas</span><span class="p">,</span> <span class="n">modelo</span> <span class="o">=</span> <span class="n">evaluar_holt_winters</span><span class="p">(</span><span class="n">train_fold</span><span class="p">,</span> <span class="n">val_fold</span><span class="p">)</span>
+    <span class="n">predicciones</span><span class="p">,</span> <span class="n">metricas</span><span class="p">,</span> <span class="n">modelo</span> <span class="o">=</span> <span class="n">evaluar_holt_amortiguado</span><span class="p">(</span><span class="n">train_fold</span><span class="p">,</span> <span class="n">val_fold</span><span class="p">)</span>
     
     <span class="n">resultados_cv_c29</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
         <span class="s1">&#39;fold&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
@@ -683,53 +687,53 @@ Fold 4: Train 2018-01 a 2023-12 (72m) -&gt; Val 2024-01 a 2024-12 (12m)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------
-Validación cruzada - Holt-Winters Aditivo (C29)
+Validación cruzada - Holt con tendencia amortiguada (C29)
 --------------------------------------------------
 
 --- Fold 1 ---
 Train: 2018-01 - 2020-12
 Val: 2021-01 - 2021-12
-RMSE: 869.0270
-MAE: 769.3250
-MAPE: 29.9843%
-SMAPE: 25.0677%
-MSE: 755207.8737
+RMSE: 684.0956
+MAE: 630.1858
+MAPE: 24.4781%
+SMAPE: 21.4317%
+MSE: 467986.8184
 
 --- Fold 2 ---
 Train: 2018-01 - 2021-12
 Val: 2022-01 - 2022-12
-RMSE: 830.5627
-MAE: 676.2801
-MAPE: 22.5230%
-SMAPE: 23.6492%
-MSE: 689834.3365
+RMSE: 791.9864
+MAE: 640.8285
+MAPE: 20.7100%
+SMAPE: 22.0893%
+MSE: 627242.4004
 
 --- Fold 3 ---
 Train: 2018-01 - 2022-12
 Val: 2023-01 - 2023-12
-RMSE: 1202.4692
-MAE: 961.8149
-MAPE: 41.5701%
-SMAPE: 28.1845%
-MSE: 1445932.1634
+RMSE: 934.4558
+MAE: 755.4282
+MAPE: 32.6398%
+SMAPE: 23.6773%
+MSE: 873207.6505
 
 --- Fold 4 ---
 Train: 2018-01 - 2023-12
 Val: 2024-01 - 2024-12
-RMSE: 791.1025
-MAE: 587.7869
-MAPE: 26.3614%
-SMAPE: 21.2314%
-MSE: 625843.1901
+RMSE: 760.5720
+MAE: 573.4519
+MAPE: 26.0675%
+SMAPE: 20.8302%
+MSE: 578469.7501
 
 --------------------------------------------------
 Métricas promedio en validación cruzada
 --------------------------------------------------
-RMSE: 923.2903
-MAE: 748.8018
-MAPE: 30.1097%
-SMAPE: 24.5332%
-MSE: 879204.3909
+RMSE: 792.7774
+MAE: 649.9736
+MAPE: 25.9739%
+SMAPE: 22.0071%
+MSE: 636726.6548
 </pre></div>
 </div>
 </div>
@@ -737,14 +741,14 @@ MSE: 879204.3909
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Evaluación final en Test (2025)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Evaluación final en Test (2025) - Holt con tendencia amortiguada&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
 
 <span class="n">modelo_final_c29</span> <span class="o">=</span> <span class="n">ExponentialSmoothing</span><span class="p">(</span>
     <span class="n">train_c29</span><span class="p">,</span>
-    <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
     <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
-    <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
+    <span class="n">seasonal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">damped_trend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>          
     <span class="n">initialization_method</span><span class="o">=</span><span class="s1">&#39;estimated&#39;</span>
 <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 
@@ -798,13 +802,13 @@ MSE: 879204.3909
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------
-Evaluación final en Test (2025)
+Evaluación final en Test (2025) - Holt con tendencia amortiguada
 --------------------------------------------------
-RMSE: 378.0217
-MAE: 328.1516
-MAPE: 28.0029%
-SMAPE: 23.0216%
-MSE: 142900.3850
+RMSE: 479.4279
+MAE: 405.8879
+MAPE: 36.5206%
+SMAPE: 28.1851%
+MSE: 229851.1055
 
 Resumen comparativo:
 </pre></div>
@@ -836,32 +840,32 @@ Resumen comparativo:
     <tr>
       <th>0</th>
       <td>RMSE</td>
-      <td>923.2903</td>
-      <td>378.0217</td>
+      <td>792.7774</td>
+      <td>479.4279</td>
     </tr>
     <tr>
       <th>1</th>
       <td>MAE</td>
-      <td>748.8018</td>
-      <td>328.1516</td>
+      <td>649.9736</td>
+      <td>405.8879</td>
     </tr>
     <tr>
       <th>2</th>
       <td>MAPE</td>
-      <td>30.1097</td>
-      <td>28.0029</td>
+      <td>25.9739</td>
+      <td>36.5206</td>
     </tr>
     <tr>
       <th>3</th>
       <td>SMAPE</td>
-      <td>24.5332</td>
-      <td>23.0216</td>
+      <td>22.0071</td>
+      <td>28.1851</td>
     </tr>
     <tr>
       <th>4</th>
       <td>MSE</td>
-      <td>879204.3909</td>
-      <td>142900.3850</td>
+      <td>636726.6548</td>
+      <td>229851.1055</td>
     </tr>
   </tbody>
 </table>
@@ -869,7 +873,9 @@ Resumen comparativo:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Enero&#39;</span><span class="p">,</span><span class="s1">&#39;Febrero&#39;</span><span class="p">,</span><span class="s1">&#39;Marzo&#39;</span><span class="p">,</span><span class="s1">&#39;Abril&#39;</span><span class="p">,</span><span class="s1">&#39;Mayo&#39;</span><span class="p">,</span><span class="s1">&#39;Junio&#39;</span><span class="p">,</span><span class="s1">&#39;Julio&#39;</span><span class="p">,</span><span class="s1">&#39;Agosto&#39;</span><span class="p">,</span><span class="s1">&#39;Septiembre&#39;</span><span class="p">,</span><span class="s1">&#39;Octubre&#39;</span><span class="p">,</span><span class="s1">&#39;Noviembre&#39;</span><span class="p">,</span><span class="s1">&#39;Diciembre&#39;</span><span class="p">]</span>
+
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
 
 <span class="n">fig1</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="n">train_c29</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
@@ -895,7 +901,7 @@ Resumen comparativo:
     <span class="n">x</span><span class="o">=</span><span class="n">test_c29</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="n">predicciones_test_c29</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
     <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines+markers&#39;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Predicción Holt-Winters&#39;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Predicción Holt amortiguado&#39;</span><span class="p">,</span>   
     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
     <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;square&#39;</span><span class="p">),</span>
     <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;Fecha: %</span><span class="si">{x}</span><span class="s1">&lt;br&gt;Predicción: %</span><span class="si">{y:,.0f}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
@@ -922,7 +928,7 @@ Resumen comparativo:
 
 <span class="n">fig1</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
     <span class="n">title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;C29 - Holt-Winters Aditivo: Predicción vs Real&lt;br&gt;&#39;</span>
+        <span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;C29 - Holt con tendencia amortiguada: Predicción vs Real&lt;br&gt;&#39;</span>
              <span class="sa">f</span><span class="s1">&#39;&lt;sup&gt;Test: RMSE=</span><span class="si">{</span><span class="n">rmse_test</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> | MAE=</span><span class="si">{</span><span class="n">mae_test</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> | MAPE=</span><span class="si">{</span><span class="n">mape_test</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">%&lt;/sup&gt;&#39;</span><span class="p">,</span>
         <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
         <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
@@ -944,9 +950,6 @@ Resumen comparativo:
 
 <span class="n">fig1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-
-<span class="n">meses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Enero&#39;</span><span class="p">,</span><span class="s1">&#39;Febrero&#39;</span><span class="p">,</span><span class="s1">&#39;Marzo&#39;</span><span class="p">,</span><span class="s1">&#39;Abril&#39;</span><span class="p">,</span><span class="s1">&#39;Mayo&#39;</span><span class="p">,</span><span class="s1">&#39;Junio&#39;</span><span class="p">,</span><span class="s1">&#39;Julio&#39;</span><span class="p">,</span><span class="s1">&#39;Agosto&#39;</span><span class="p">,</span><span class="s1">&#39;Septiembre&#39;</span><span class="p">,</span><span class="s1">&#39;Octubre&#39;</span><span class="p">,</span><span class="s1">&#39;Noviembre&#39;</span><span class="p">,</span><span class="s1">&#39;Diciembre&#39;</span><span class="p">]</span>
-
 <span class="n">fig2</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
 
 <span class="n">fig2</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
@@ -963,7 +966,7 @@ Resumen comparativo:
     <span class="n">x</span><span class="o">=</span><span class="n">meses</span><span class="p">,</span>
     <span class="n">y</span><span class="o">=</span><span class="n">predicciones_test_c29</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
     <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines+markers&#39;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Predicción&#39;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Predicción Holt amortiguado&#39;</span><span class="p">,</span>
     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
     <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;square&#39;</span><span class="p">),</span>
     <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;Mes: %</span><span class="si">{x}</span><span class="s1">&lt;br&gt;Predicción: %</span><span class="si">{y:,.0f}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
@@ -991,732 +994,6 @@ Resumen comparativo:
 <span class="p">)</span>
 
 <span class="n">fig2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-
-<span class="n">errores_test</span> <span class="o">=</span> <span class="n">test_c29</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">predicciones_test_c29</span><span class="o">.</span><span class="n">values</span>
-
-<span class="n">fig3</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
-
-<span class="n">fig3</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">meses</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">errores_test</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Error (Real - Predicción)&#39;</span><span class="p">,</span>
-    <span class="n">marker_color</span><span class="o">=</span><span class="s1">&#39;mediumpurple&#39;</span><span class="p">,</span>
-    <span class="n">marker_line_color</span><span class="o">=</span><span class="s1">&#39;darkorchid&#39;</span><span class="p">,</span>
-    <span class="n">marker_line_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;Mes: %</span><span class="si">{x}</span><span class="s1">&lt;br&gt;Error: %</span><span class="si">{y:,.0f}</span><span class="s1"> comparendos&lt;extra&gt;&lt;/extra&gt;&#39;</span>
-<span class="p">))</span>
-
-<span class="n">fig3</span><span class="o">.</span><span class="n">add_hline</span><span class="p">(</span>
-    <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">line_width</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
-    <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
-    <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span>
-<span class="p">)</span>
-
-<span class="n">fig3</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Errores por mes (Real - Predicción) - Test 2025&#39;</span><span class="p">,</span>
-        <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-        <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-    <span class="p">),</span>
-    <span class="n">xaxis_title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Mes&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)),</span>
-    <span class="n">yaxis_title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Error (Comparendos)&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)),</span>
-    <span class="n">template</span><span class="o">=</span><span class="s1">&#39;plotly_white&#39;</span><span class="p">,</span>
-    <span class="n">hovermode</span><span class="o">=</span><span class="s1">&#39;x unified&#39;</span><span class="p">,</span>
-    <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">1055</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">500</span>
-<span class="p">)</span>
-
-<span class="n">fig3</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calcular_metricas</span><span class="p">(</span><span class="n">real</span><span class="p">,</span> <span class="n">pred</span><span class="p">):</span>
-
-    <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">real</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span>
-    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span>
-    <span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">real</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span>
-    <span class="n">mape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">real</span> <span class="o">-</span> <span class="n">pred</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">real</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">real</span><span class="p">)))</span> <span class="o">*</span> <span class="mi">100</span>
-    <span class="n">smape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">real</span> <span class="o">-</span> <span class="n">pred</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">real</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
-    
-    <span class="n">metricas</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="n">mse</span><span class="p">,</span>
-        <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="n">rmse</span><span class="p">,</span>
-        <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="n">mae</span><span class="p">,</span>
-        <span class="s1">&#39;MAPE&#39;</span><span class="p">:</span> <span class="n">mape</span><span class="p">,</span>
-        <span class="s1">&#39;SMAPE&#39;</span><span class="p">:</span> <span class="n">smape</span>
-    <span class="p">}</span>
-    
-    <span class="k">return</span> <span class="n">metricas</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluar_ets</span><span class="p">(</span><span class="n">train_fold</span><span class="p">,</span> <span class="n">val_fold</span><span class="p">,</span> <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-
-    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">modelo</span> <span class="o">=</span> <span class="n">ETSModel</span><span class="p">(</span>
-            <span class="n">train_fold</span><span class="p">,</span>
-            <span class="n">seasonal_periods</span><span class="o">=</span><span class="n">seasonal_periods</span><span class="p">,</span>
-            <span class="n">error</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
-            <span class="n">trend</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
-            <span class="n">seasonal</span><span class="o">=</span><span class="s1">&#39;add&#39;</span><span class="p">,</span>
-            <span class="n">damped_trend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">initialization_method</span><span class="o">=</span><span class="s1">&#39;estimated&#39;</span>
-        <span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">modelo</span> <span class="o">=</span> <span class="n">ETSModel</span><span class="p">(</span>
-            <span class="n">train_fold</span><span class="p">,</span>
-            <span class="n">seasonal_periods</span><span class="o">=</span><span class="n">seasonal_periods</span><span class="p">,</span>
-            <span class="n">error</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">),</span>
-            <span class="n">trend</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;trend&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">),</span>
-            <span class="n">seasonal</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;seasonal&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">),</span>
-            <span class="n">damped_trend</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;damped_trend&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-            <span class="n">initialization_method</span><span class="o">=</span><span class="s1">&#39;estimated&#39;</span>
-        <span class="p">)</span>
-    
-    <span class="n">modelo_ajustado</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    
-    <span class="n">predicciones</span> <span class="o">=</span> <span class="n">modelo_ajustado</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">val_fold</span><span class="p">))</span>
-    
-    <span class="n">real</span> <span class="o">=</span> <span class="n">val_fold</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">pred</span> <span class="o">=</span> <span class="n">predicciones</span><span class="o">.</span><span class="n">values</span>
-    
-    <span class="n">metricas</span> <span class="o">=</span> <span class="n">calcular_metricas</span><span class="p">(</span><span class="n">real</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">predicciones</span><span class="p">,</span> <span class="n">metricas</span><span class="p">,</span> <span class="n">modelo_ajustado</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">configuraciones_ets</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;ETS_Auto&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="s1">&#39;ETS_A_A_A&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;trend&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> 
-        <span class="s1">&#39;seasonal&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;damped_trend&#39;</span><span class="p">:</span> <span class="kc">False</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;ETS_A_Ad_A&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;trend&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;seasonal&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;damped_trend&#39;</span><span class="p">:</span> <span class="kc">True</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;ETS_A_A_N&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;trend&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;seasonal&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="s1">&#39;damped_trend&#39;</span><span class="p">:</span> <span class="kc">False</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;ETS_A_Ad_N&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;trend&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;seasonal&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="s1">&#39;damped_trend&#39;</span><span class="p">:</span> <span class="kc">True</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultados_cv_ets</span> <span class="o">=</span> <span class="p">{</span><span class="n">nombre</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="n">configuraciones_ets</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Validación cruzada - Comparación de modelos ETS (C29)&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">nombre_config</span><span class="p">,</span> <span class="n">config</span> <span class="ow">in</span> <span class="n">configuraciones_ets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39;─&#39;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">30</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">nombre_config</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;─&#39;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">30</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">train_fold</span><span class="p">,</span> <span class="n">val_fold</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ventanas_c29</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Fold </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> ---&quot;</span><span class="p">)</span>
-        
-        <span class="n">predicciones</span><span class="p">,</span> <span class="n">metricas</span><span class="p">,</span> <span class="n">modelo</span> <span class="o">=</span> <span class="n">evaluar_ets</span><span class="p">(</span><span class="n">train_fold</span><span class="p">,</span> <span class="n">val_fold</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
-        
-        <span class="n">resultados_cv_ets</span><span class="p">[</span><span class="n">nombre_config</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-            <span class="s1">&#39;fold&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
-            <span class="s1">&#39;train_periodo&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">train_fold</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">train_fold</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="s1">&#39;val_periodo&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">val_fold</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">val_fold</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-            <span class="s1">&#39;metricas&#39;</span><span class="p">:</span> <span class="n">metricas</span>
-        <span class="p">})</span>
-        
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Train: </span><span class="si">{</span><span class="n">train_fold</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">train_fold</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Val: </span><span class="si">{</span><span class="n">val_fold</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">val_fold</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE: </span><span class="si">{</span><span class="n">metricas</span><span class="p">[</span><span class="s1">&#39;RMSE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAE: </span><span class="si">{</span><span class="n">metricas</span><span class="p">[</span><span class="s1">&#39;MAE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAPE: </span><span class="si">{</span><span class="n">metricas</span><span class="p">[</span><span class="s1">&#39;MAPE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SMAPE: </span><span class="si">{</span><span class="n">metricas</span><span class="p">[</span><span class="s1">&#39;SMAPE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MSE: </span><span class="si">{</span><span class="n">metricas</span><span class="p">[</span><span class="s1">&#39;MSE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">metricas_promedio_ets</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">nombre_config</span> <span class="ow">in</span> <span class="n">configuraciones_ets</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">resultados_cv_ets</span><span class="p">[</span><span class="n">nombre_config</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">metricas_promedio_ets</span><span class="p">[</span><span class="n">nombre_config</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;metricas&#39;</span><span class="p">][</span><span class="s1">&#39;RMSE&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resultados_cv_ets</span><span class="p">[</span><span class="n">nombre_config</span><span class="p">]]),</span>
-            <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;metricas&#39;</span><span class="p">][</span><span class="s1">&#39;MAE&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resultados_cv_ets</span><span class="p">[</span><span class="n">nombre_config</span><span class="p">]]),</span>
-            <span class="s1">&#39;MAPE&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;metricas&#39;</span><span class="p">][</span><span class="s1">&#39;MAPE&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resultados_cv_ets</span><span class="p">[</span><span class="n">nombre_config</span><span class="p">]]),</span>
-            <span class="s1">&#39;SMAPE&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;metricas&#39;</span><span class="p">][</span><span class="s1">&#39;SMAPE&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resultados_cv_ets</span><span class="p">[</span><span class="n">nombre_config</span><span class="p">]]),</span>
-            <span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;metricas&#39;</span><span class="p">][</span><span class="s1">&#39;MSE&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">resultados_cv_ets</span><span class="p">[</span><span class="n">nombre_config</span><span class="p">]])</span>
-        <span class="p">}</span>
-
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Métricas promedio por configuración en validación cruzada&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">nombre_config</span><span class="p">,</span> <span class="n">metricas</span> <span class="ow">in</span> <span class="n">metricas_promedio_ets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">nombre_config</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE: </span><span class="si">{</span><span class="n">metricas</span><span class="p">[</span><span class="s1">&#39;RMSE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAE: </span><span class="si">{</span><span class="n">metricas</span><span class="p">[</span><span class="s1">&#39;MAE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAPE: </span><span class="si">{</span><span class="n">metricas</span><span class="p">[</span><span class="s1">&#39;MAPE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SMAPE: </span><span class="si">{</span><span class="n">metricas</span><span class="p">[</span><span class="s1">&#39;SMAPE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MSE: </span><span class="si">{</span><span class="n">metricas</span><span class="p">[</span><span class="s1">&#39;MSE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">mejor_config_nombre</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">metricas_promedio_ets</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">metricas_promedio_ets</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;RMSE&#39;</span><span class="p">])</span>
-<span class="n">mejor_config</span> <span class="o">=</span> <span class="n">configuraciones_ets</span><span class="p">[</span><span class="n">mejor_config_nombre</span><span class="p">]</span>
-<span class="n">metricas_cv_mejor</span> <span class="o">=</span> <span class="n">metricas_promedio_ets</span><span class="p">[</span><span class="n">mejor_config_nombre</span><span class="p">]</span>
-
-<span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mejor configuración: </span><span class="si">{</span><span class="n">mejor_config_nombre</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE: </span><span class="si">{</span><span class="n">metricas_cv_mejor</span><span class="p">[</span><span class="s1">&#39;RMSE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAE: </span><span class="si">{</span><span class="n">metricas_cv_mejor</span><span class="p">[</span><span class="s1">&#39;MAE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAPE: </span><span class="si">{</span><span class="n">metricas_cv_mejor</span><span class="p">[</span><span class="s1">&#39;MAPE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SMAPE: </span><span class="si">{</span><span class="n">metricas_cv_mejor</span><span class="p">[</span><span class="s1">&#39;SMAPE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MSE: </span><span class="si">{</span><span class="n">metricas_cv_mejor</span><span class="p">[</span><span class="s1">&#39;MSE&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="n">mejor_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">mejor_config</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;trend&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;seasonal&#39;</span><span class="p">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;damped_trend&#39;</span><span class="p">:</span> <span class="kc">True</span>
-    <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------
-Validación cruzada - Comparación de modelos ETS (C29)
---------------------------------------------------
-
-────────────────────────────── ETS_Auto ──────────────────────────────
-
---- Fold 1 ---
-Train: 2018-01 - 2020-12
-Val: 2021-01 - 2021-12
-RMSE: 684.9695
-MAE: 623.0762
-MAPE: 23.9729%
-SMAPE: 21.9700%
-MSE: 469183.1667
-
---- Fold 2 ---
-Train: 2018-01 - 2021-12
-Val: 2022-01 - 2022-12
-RMSE: 764.5283
-MAE: 620.7691
-MAPE: 22.1981%
-SMAPE: 21.3663%
-MSE: 584503.5448
-
---- Fold 3 ---
-Train: 2018-01 - 2022-12
-Val: 2023-01 - 2023-12
-RMSE: 1169.4003
-MAE: 1004.3990
-MAPE: 41.6882%
-SMAPE: 29.5059%
-MSE: 1367496.9640
-
---- Fold 4 ---
-Train: 2018-01 - 2023-12
-Val: 2024-01 - 2024-12
-RMSE: 812.9578
-MAE: 606.5262
-MAPE: 27.2691%
-SMAPE: 21.7889%
-MSE: 660900.4561
-
-────────────────────────────── ETS_A_A_A ──────────────────────────────
-
---- Fold 1 ---
-Train: 2018-01 - 2020-12
-Val: 2021-01 - 2021-12
-RMSE: 572.5594
-MAE: 499.1518
-MAPE: 18.9282%
-SMAPE: 18.2306%
-MSE: 327824.2499
-
---- Fold 2 ---
-Train: 2018-01 - 2021-12
-Val: 2022-01 - 2022-12
-RMSE: 930.5409
-MAE: 796.6396
-MAPE: 25.4641%
-SMAPE: 29.1431%
-MSE: 865906.3807
-
---- Fold 3 ---
-Train: 2018-01 - 2022-12
-Val: 2023-01 - 2023-12
-RMSE: 1363.1111
-MAE: 1223.1162
-MAPE: 49.3204%
-SMAPE: 34.5484%
-MSE: 1858071.8474
-
---- Fold 4 ---
-Train: 2018-01 - 2023-12
-Val: 2024-01 - 2024-12
-RMSE: 794.9723
-MAE: 592.4518
-MAPE: 26.5740%
-SMAPE: 21.3773%
-MSE: 631980.8790
-
-────────────────────────────── ETS_A_Ad_A ──────────────────────────────
-
---- Fold 1 ---
-Train: 2018-01 - 2020-12
-Val: 2021-01 - 2021-12
-RMSE: 684.9695
-MAE: 623.0762
-MAPE: 23.9729%
-SMAPE: 21.9700%
-MSE: 469183.1667
-
---- Fold 2 ---
-Train: 2018-01 - 2021-12
-Val: 2022-01 - 2022-12
-RMSE: 764.5283
-MAE: 620.7691
-MAPE: 22.1981%
-SMAPE: 21.3663%
-MSE: 584503.5448
-
---- Fold 3 ---
-Train: 2018-01 - 2022-12
-Val: 2023-01 - 2023-12
-RMSE: 1169.4003
-MAE: 1004.3990
-MAPE: 41.6882%
-SMAPE: 29.5059%
-MSE: 1367496.9640
-
---- Fold 4 ---
-Train: 2018-01 - 2023-12
-Val: 2024-01 - 2024-12
-RMSE: 812.9578
-MAE: 606.5262
-MAPE: 27.2691%
-SMAPE: 21.7889%
-MSE: 660900.4561
-
-────────────────────────────── ETS_A_A_N ──────────────────────────────
-
---- Fold 1 ---
-Train: 2018-01 - 2020-12
-Val: 2021-01 - 2021-12
-RMSE: 675.4480
-MAE: 621.2979
-MAPE: 24.1287%
-SMAPE: 21.1634%
-MSE: 456230.0233
-
---- Fold 2 ---
-Train: 2018-01 - 2021-12
-Val: 2022-01 - 2022-12
-RMSE: 807.7077
-MAE: 647.8325
-MAPE: 20.7633%
-SMAPE: 22.3468%
-MSE: 652391.7316
-
---- Fold 3 ---
-Train: 2018-01 - 2022-12
-Val: 2023-01 - 2023-12
-RMSE: 947.2390
-MAE: 773.1202
-MAPE: 33.2100%
-SMAPE: 24.1310%
-MSE: 897261.6606
-
---- Fold 4 ---
-Train: 2018-01 - 2023-12
-Val: 2024-01 - 2024-12
-RMSE: 667.1233
-MAE: 558.5669
-MAPE: 22.8263%
-SMAPE: 20.4091%
-MSE: 445053.5460
-
-────────────────────────────── ETS_A_Ad_N ──────────────────────────────
-
---- Fold 1 ---
-Train: 2018-01 - 2020-12
-Val: 2021-01 - 2021-12
-RMSE: 717.4344
-MAE: 664.0863
-MAPE: 25.8104%
-SMAPE: 22.4452%
-MSE: 514712.1466
-
---- Fold 2 ---
-Train: 2018-01 - 2021-12
-Val: 2022-01 - 2022-12
-RMSE: 739.2000
-MAE: 612.9595
-MAPE: 20.4881%
-SMAPE: 21.0778%
-MSE: 546416.6790
-
---- Fold 3 ---
-Train: 2018-01 - 2022-12
-Val: 2023-01 - 2023-12
-RMSE: 918.8669
-MAE: 733.9334
-MAPE: 31.9377%
-SMAPE: 23.1236%
-MSE: 844316.4413
-
---- Fold 4 ---
-Train: 2018-01 - 2023-12
-Val: 2024-01 - 2024-12
-RMSE: 775.2377
-MAE: 580.3350
-MAPE: 26.5987%
-SMAPE: 21.0239%
-MSE: 600993.5321
-
---------------------------------------------------
-Métricas promedio por configuración en validación cruzada
---------------------------------------------------
-
-ETS_Auto:
-RMSE: 857.9640
-MAE: 713.6926
-MAPE: 28.7821%
-SMAPE: 23.6578%
-MSE: 770521.0329
-
-ETS_A_A_A:
-RMSE: 915.2959
-MAE: 777.8398
-MAPE: 30.0717%
-SMAPE: 25.8248%
-MSE: 920945.8393
-
-ETS_A_Ad_A:
-RMSE: 857.9640
-MAE: 713.6926
-MAPE: 28.7821%
-SMAPE: 23.6578%
-MSE: 770521.0329
-
-ETS_A_A_N:
-RMSE: 774.3795
-MAE: 650.2044
-MAPE: 25.2321%
-SMAPE: 22.0126%
-MSE: 612734.2404
-
-ETS_A_Ad_N:
-RMSE: 787.6848
-MAE: 647.8285
-MAPE: 26.2087%
-SMAPE: 21.9176%
-MSE: 626609.6997
-
---------------------------------------------------
-Mejor configuración: ETS_A_A_N
---------------------------------------------------
-RMSE: 774.3795
-MAE: 650.2044
-MAPE: 25.2321%
-SMAPE: 22.0126%
-MSE: 612734.2404
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Evaluación final en Test (2025)&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
-
-<span class="n">modelo_final_c29</span> <span class="o">=</span> <span class="n">ETSModel</span><span class="p">(</span>
-    <span class="n">train_c29</span><span class="p">,</span>
-    <span class="n">seasonal_periods</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
-    <span class="n">error</span><span class="o">=</span><span class="n">mejor_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">),</span>
-    <span class="n">trend</span><span class="o">=</span><span class="n">mejor_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;trend&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">),</span>
-    <span class="n">seasonal</span><span class="o">=</span><span class="n">mejor_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;seasonal&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">),</span>
-    <span class="n">damped_trend</span><span class="o">=</span><span class="n">mejor_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;damped_trend&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-    <span class="n">initialization_method</span><span class="o">=</span><span class="s1">&#39;estimated&#39;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">predicciones_test_c29</span> <span class="o">=</span> <span class="n">modelo_final_c29</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_c29</span><span class="p">))</span>
-
-<span class="n">real_test</span> <span class="o">=</span> <span class="n">test_c29</span><span class="o">.</span><span class="n">values</span>
-<span class="n">pred_test</span> <span class="o">=</span> <span class="n">predicciones_test_c29</span><span class="o">.</span><span class="n">values</span>
-
-<span class="n">mse_test</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">real_test</span><span class="p">,</span> <span class="n">pred_test</span><span class="p">)</span>
-<span class="n">rmse_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse_test</span><span class="p">)</span>
-<span class="n">mae_test</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">real_test</span><span class="p">,</span> <span class="n">pred_test</span><span class="p">)</span>
-<span class="n">mape_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">real_test</span> <span class="o">-</span> <span class="n">pred_test</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">real_test</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">real_test</span><span class="p">)))</span> <span class="o">*</span> <span class="mi">100</span>
-<span class="n">smape_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">real_test</span> <span class="o">-</span> <span class="n">pred_test</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">real_test</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">pred_test</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
-
-<span class="n">metricas_test_c29</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="n">mse_test</span><span class="p">,</span>
-    <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="n">rmse_test</span><span class="p">,</span>
-    <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="n">mae_test</span><span class="p">,</span>
-    <span class="s1">&#39;MAPE&#39;</span><span class="p">:</span> <span class="n">mape_test</span><span class="p">,</span>
-    <span class="s1">&#39;SMAPE&#39;</span><span class="p">:</span> <span class="n">smape_test</span>
-<span class="p">}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE: </span><span class="si">{</span><span class="n">rmse_test</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAE: </span><span class="si">{</span><span class="n">mae_test</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MAPE: </span><span class="si">{</span><span class="n">mape_test</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SMAPE: </span><span class="si">{</span><span class="n">smape_test</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;MSE: </span><span class="si">{</span><span class="n">mse_test</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="n">df_resultados_c29</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s1">&#39;Métrica&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;RMSE&#39;</span><span class="p">,</span> <span class="s1">&#39;MAE&#39;</span><span class="p">,</span> <span class="s1">&#39;MAPE&#39;</span><span class="p">,</span> <span class="s1">&#39;SMAPE&#39;</span><span class="p">,</span> <span class="s1">&#39;MSE&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;CV Promedio&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="nb">round</span><span class="p">(</span><span class="n">metricas_cv_mejor</span><span class="p">[</span><span class="s1">&#39;RMSE&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">),</span>
-        <span class="nb">round</span><span class="p">(</span><span class="n">metricas_cv_mejor</span><span class="p">[</span><span class="s1">&#39;MAE&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">),</span>
-        <span class="nb">round</span><span class="p">(</span><span class="n">metricas_cv_mejor</span><span class="p">[</span><span class="s1">&#39;MAPE&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">),</span>
-        <span class="nb">round</span><span class="p">(</span><span class="n">metricas_cv_mejor</span><span class="p">[</span><span class="s1">&#39;SMAPE&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">),</span>
-        <span class="nb">round</span><span class="p">(</span><span class="n">metricas_cv_mejor</span><span class="p">[</span><span class="s1">&#39;MSE&#39;</span><span class="p">],</span> <span class="mi">4</span><span class="p">)</span>
-    <span class="p">],</span>
-    <span class="s1">&#39;Test (2025)&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="nb">round</span><span class="p">(</span><span class="n">rmse_test</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-        <span class="nb">round</span><span class="p">(</span><span class="n">mae_test</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-        <span class="nb">round</span><span class="p">(</span><span class="n">mape_test</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-        <span class="nb">round</span><span class="p">(</span><span class="n">smape_test</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-        <span class="nb">round</span><span class="p">(</span><span class="n">mse_test</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-    <span class="p">]</span>
-<span class="p">})</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Resumen comparativo:&quot;</span><span class="p">)</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df_resultados_c29</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------
-Evaluación final en Test (2025)
---------------------------------------------------
-RMSE: 431.0657
-MAE: 363.1522
-MAPE: 32.7418%
-SMAPE: 25.7811%
-MSE: 185817.6157
-
-Resumen comparativo:
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Métrica</th>
-      <th>CV Promedio</th>
-      <th>Test (2025)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>RMSE</td>
-      <td>774.3795</td>
-      <td>431.0657</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>MAE</td>
-      <td>650.2044</td>
-      <td>363.1522</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>MAPE</td>
-      <td>25.2321</td>
-      <td>32.7418</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>SMAPE</td>
-      <td>22.0126</td>
-      <td>25.7811</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>MSE</td>
-      <td>612734.2404</td>
-      <td>185817.6157</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
-
-<span class="n">fig1</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">train_c29</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">train_c29</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines+markers&#39;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Train (2018-2024)&#39;</span><span class="p">,</span>
-    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
-    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
-    <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;Fecha: %</span><span class="si">{x}</span><span class="s1">&lt;br&gt;Comparendos: %</span><span class="si">{y:,.0f}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
-<span class="p">))</span>
-
-<span class="n">fig1</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">test_c29</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">test_c29</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines+markers&#39;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Test Real (2025)&#39;</span><span class="p">,</span>
-    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
-    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
-    <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;Fecha: %</span><span class="si">{x}</span><span class="s1">&lt;br&gt;Real: %</span><span class="si">{y:,.0f}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
-<span class="p">))</span>
-
-<span class="n">fig1</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">test_c29</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">predicciones_test_c29</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines+markers&#39;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Predicción ETS&#39;</span><span class="p">,</span>
-    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
-    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;square&#39;</span><span class="p">),</span>
-    <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;Fecha: %</span><span class="si">{x}</span><span class="s1">&lt;br&gt;Predicción: %</span><span class="si">{y:,.0f}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
-<span class="p">))</span>
-
-<span class="n">fig1</span><span class="o">.</span><span class="n">add_vline</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;2025-01-01&#39;</span><span class="p">,</span>
-    <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">line_dash</span><span class="o">=</span><span class="s1">&#39;dash&#39;</span><span class="p">,</span>
-    <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;darkgray&#39;</span><span class="p">,</span>
-    <span class="n">opacity</span><span class="o">=</span><span class="mi">1</span>
-<span class="p">)</span>
-
-<span class="n">fig1</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;2025-01-01&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
-    <span class="n">yref</span><span class="o">=</span><span class="s1">&#39;paper&#39;</span><span class="p">,</span>
-    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;&lt;b&gt;Inicio Test&lt;/b&gt;&#39;</span><span class="p">,</span>
-    <span class="n">showarrow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkgray&#39;</span><span class="p">),</span>
-    <span class="n">xanchor</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
-    <span class="n">yanchor</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span>
-<span class="p">)</span>
-
-<span class="n">fig1</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;C29 - ETS (</span><span class="si">{</span><span class="n">mejor_config_nombre</span><span class="si">}</span><span class="s1">): Predicción vs Real&lt;br&gt;&#39;</span>
-             <span class="sa">f</span><span class="s1">&#39;&lt;sup&gt;Test: RMSE=</span><span class="si">{</span><span class="n">rmse_test</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> | MAE=</span><span class="si">{</span><span class="n">mae_test</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1"> | MAPE=</span><span class="si">{</span><span class="n">mape_test</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">%&lt;/sup&gt;&#39;</span><span class="p">,</span>
-        <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-        <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-    <span class="p">),</span>
-    <span class="n">xaxis_title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)),</span>
-    <span class="n">yaxis_title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Comparendos&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)),</span>
-    <span class="n">template</span><span class="o">=</span><span class="s1">&#39;plotly_white&#39;</span><span class="p">,</span>
-    <span class="n">hovermode</span><span class="o">=</span><span class="s1">&#39;x unified&#39;</span><span class="p">,</span>
-    <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
-        <span class="n">y</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span>
-        <span class="n">bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(255,255,255,0.7)&#39;</span><span class="p">,</span>
-        <span class="n">bordercolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span>
-        <span class="n">borderwidth</span><span class="o">=</span><span class="mi">1</span>
-    <span class="p">),</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">1055</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">500</span>
-<span class="p">)</span>
-
-<span class="n">fig1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-
-<span class="n">meses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Enero&#39;</span><span class="p">,</span><span class="s1">&#39;Febrero&#39;</span><span class="p">,</span><span class="s1">&#39;Marzo&#39;</span><span class="p">,</span><span class="s1">&#39;Abril&#39;</span><span class="p">,</span><span class="s1">&#39;Mayo&#39;</span><span class="p">,</span><span class="s1">&#39;Junio&#39;</span><span class="p">,</span><span class="s1">&#39;Julio&#39;</span><span class="p">,</span><span class="s1">&#39;Agosto&#39;</span><span class="p">,</span><span class="s1">&#39;Septiembre&#39;</span><span class="p">,</span><span class="s1">&#39;Octubre&#39;</span><span class="p">,</span><span class="s1">&#39;Noviembre&#39;</span><span class="p">,</span><span class="s1">&#39;Diciembre&#39;</span><span class="p">]</span>
-
-<span class="n">fig2</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
-
-<span class="n">fig2</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">meses</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">test_c29</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines+markers&#39;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Real&#39;</span><span class="p">,</span>
-    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
-    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;circle&#39;</span><span class="p">),</span>
-    <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;Mes: %</span><span class="si">{x}</span><span class="s1">&lt;br&gt;Real: %</span><span class="si">{y:,.0f}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
-<span class="p">))</span>
-
-<span class="n">fig2</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">meses</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">predicciones_test_c29</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines+markers&#39;</span><span class="p">,</span>
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Predicción&#39;</span><span class="p">,</span>
-    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
-    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;square&#39;</span><span class="p">),</span>
-    <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;Mes: %</span><span class="si">{x}</span><span class="s1">&lt;br&gt;Predicción: %</span><span class="si">{y:,.0f}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
-<span class="p">))</span>
-
-<span class="n">fig2</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Zoom: Test 2025 (Predicho vs Real)&#39;</span><span class="p">,</span>
-        <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-        <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
-    <span class="p">),</span>
-    <span class="n">xaxis_title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Mes&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)),</span>
-    <span class="n">yaxis_title</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Comparendos&#39;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)),</span>
-    <span class="n">template</span><span class="o">=</span><span class="s1">&#39;plotly_white&#39;</span><span class="p">,</span>
-    <span class="n">hovermode</span><span class="o">=</span><span class="s1">&#39;x unified&#39;</span><span class="p">,</span>
-    <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-        <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">bgcolor</span><span class="o">=</span><span class="s1">&#39;rgba(255,255,255,0.7)&#39;</span><span class="p">,</span>
-        <span class="n">bordercolor</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span>
-        <span class="n">borderwidth</span><span class="o">=</span><span class="mi">1</span>
-    <span class="p">),</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">1055</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">500</span>
-<span class="p">)</span>
-
-<span class="n">fig2</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
 
 <span class="n">errores_test</span> <span class="o">=</span> <span class="n">test_c29</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">predicciones_test_c29</span><span class="o">.</span><span class="n">values</span>
 
