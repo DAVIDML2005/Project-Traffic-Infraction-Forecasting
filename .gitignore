@@ -1,0 +1,49 @@
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dll
+
+# Entornos virtuales
+.env
+.venv/
+env/
+venv/
+ml_venv/
+
+# Archivos de Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Archivos de compilación de Jupyter Book
+docs/_build/
+docs/_build/*
+.jupyter_cache/
+.jupyter_cache/*
+
+# Archivos de configuración locales
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de logs
+*.log
+*.out
+*.err
+
+# Archivos grandes o temporales
+*.csv
+*.xlsx
+*.geojson
+*.json
+*.zip
+*.tar
+*.gz
+*.rar
