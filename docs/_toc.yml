@@ -1,0 +1,17 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: introduccion
+chapters:
+- file: exploracion_inicial
+- file: analisis_univariado
+- file: analisis_bivariado
+- file: georreferenciacion
+- file: descomposicion_temporal
+- file: modelado_infraccion_c29
+- file: modelado_infraccion_c02
+- file: modelado_infraccion_c03
+- file: modelado_infraccion_d04
+- file: modelado_infraccion_c32
+- file: conclusion

@@ -1,0 +1,31 @@
+title: Análisis y Predicción de Comparendos Electrónicos en Barranquilla
+author: David Marquez & Cristian Linero
+logo: logo_uninorte.png
+
+execute:
+  execute_notebooks: off
+
+latex:
+  latex_documents:
+    targetname: book.tex
+
+bibtex_bibfiles:
+  - references.bib
+
+repository:
+  url: https://github.com/DAVIDML2005/Project-Traffic-Infraction-Forecasting
+  path_to_book: docs
+  branch: main
+
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+  home_page_in_navbar: true
+  baseurl: ""
+  google_analytics_id: "" 
+
+sphinx:
+  config:
+    html_js_files:
+    - https://cdn.plot.ly/plotly-latest.min.js

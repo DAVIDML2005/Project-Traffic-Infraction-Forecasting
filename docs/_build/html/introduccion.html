@@ -1,0 +1,683 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introducción &#8212; Análisis y Predicción de Comparendos Electrónicos en Barranquilla</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introduccion';</script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exploración Inicial" href="exploracion_inicial.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_uninorte.png" class="logo__image only-light" alt="Análisis y Predicción de Comparendos Electrónicos en Barranquilla - Home"/>
+    <script>document.write(`<img src="_static/logo_uninorte.png" class="logo__image only-dark" alt="Análisis y Predicción de Comparendos Electrónicos en Barranquilla - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="exploracion_inicial.html">Exploración Inicial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analisis_univariado.html">Análisis Univariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analisis_bivariado.html">Análisis Bivariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="georreferenciacion.html">Georreferenciación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="descomposicion_temporal.html">Descomposición Temporal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelado_infraccion_c29.html">Modelado Predictivo de la Infracción C29</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelado_infraccion_c02.html">Modelado Predictivo de la Infracción C02</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelado_infraccion_c03.html">Modelado Predictivo de la Infracción C03</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelado_infraccion_d04.html">Modelado Predictivo de la Infracción D04</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelado_infraccion_c32.html">Modelado Predictivo de la Infracción C32</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusiones</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DAVIDML2005/Project-Traffic-Infraction-Forecasting" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DAVIDML2005/Project-Traffic-Infraction-Forecasting/edit/main/docs/introduccion.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DAVIDML2005/Project-Traffic-Infraction-Forecasting/issues/new?title=Issue%20on%20page%20%2Fintroduccion.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/introduccion.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introducción</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-del-problema-movilidad-urbana-y-foto-comparendos">Contextualización del Problema: Movilidad Urbana y Foto-Comparendos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#justificacion-del-caso-de-estudio-barranquilla-como-escenario-privilegiado">Justificación del Caso de Estudio: Barranquilla como Escenario Privilegiado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-del-estudio">Objetivos del Estudio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodologia-general-y-fases-del-analisis">Metodología General y Fases del Análisis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos">Análisis Exploratorio de Datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#georreferenciacion-y-analisis-espacial">Georreferenciación y Análisis Espacial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-temporal-de-las-series">Descomposición Temporal de las Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelado-predictivo">Modelado Predictivo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-implementados">Modelos Implementados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-estadisticos-clasicos">Modelos Estadísticos Clásicos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-regresion-regularizada">Modelos de Regresión Regularizada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-aprendizaje-automatico-basados-en-arboles">Modelos de Aprendizaje Automático basados en Árboles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-basado-en-similitud">Modelo basado en Similitud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacion-de-series-para-modelos-de-aprendizaje-automatico">Transformación de Series para Modelos de Aprendizaje Automático</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-evaluacion-del-desempeno">Métricas de Evaluación del Desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-pronosticos-para-2026">Generación de pronósticos para 2026</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevancia-y-aportes-del-estudio">Relevancia y Aportes del Estudio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brecha-de-conocimiento-y-contribucion-original">Brecha de Conocimiento y Contribución Original</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-visual-del-proyecto">Estructura Visual del Proyecto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-y-cierre">Síntesis y Cierre</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
+<h1>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
+<section id="contextualizacion-del-problema-movilidad-urbana-y-foto-comparendos">
+<h2>Contextualización del Problema: Movilidad Urbana y Foto-Comparendos<a class="headerlink" href="#contextualizacion-del-problema-movilidad-urbana-y-foto-comparendos" title="Link to this heading">#</a></h2>
+<p>El fenómeno de la movilidad urbana en las ciudades latinoamericanas enfrenta desafíos estructurales que demandan soluciones innovadoras y basadas en evidencia. Entre estos desafíos, la seguridad vial ocupa un lugar predominante, dado su impacto directo en la reducción de siniestros, la protección de la vida de peatones, ciclistas y conductores, y la calidad de vida general de los habitantes. En este contexto, los sistemas de fotodetección de infracciones de tránsito, conocidos comúnmente como foto-comparendos, han emergido como una herramienta tecnológica clave para regular el cumplimiento de las normas de tránsito. Estos dispositivos, ubicados estratégicamente en corredores viales y puntos críticos de las ciudades, capturan en tiempo real las infracciones cometidas por los conductores, generando sanciones automáticas que buscan disuadir comportamientos de riesgo. La evidencia internacional ha demostrado que la instalación de este tipo de sistemas tiene un efecto positivo y significativo en la reducción de siniestros viales, la disminución de la accidentalidad y la modificación de conductas infractoras, especialmente en lo relacionado con excesos de velocidad y pasos de semáforos en rojo.</p>
+</section>
+<section id="justificacion-del-caso-de-estudio-barranquilla-como-escenario-privilegiado">
+<h2>Justificación del Caso de Estudio: Barranquilla como Escenario Privilegiado<a class="headerlink" href="#justificacion-del-caso-de-estudio-barranquilla-como-escenario-privilegiado" title="Link to this heading">#</a></h2>
+<p>La ciudad de Barranquilla, capital del departamento del Atlántico y uno de los principales centros urbanos y portuarios de la región Caribe colombiana, presenta un caso de estudio particularmente relevante para el análisis de este fenómeno. La ciudad ha venido implementando y expandiendo de manera sostenida su infraestructura de fotodetección, contando en el período de estudio con aproximadamente 50 cámaras distribuidas en puntos estratégicos de su geografía, con una proyección de crecimiento continuo. Esta infraestructura tecnológica ha permitido la recolección sistemática de una base de datos estructurada de gran magnitud, que supera las 340.000 instancias de comparendos agregados a nivel diario, registrados entre los años 2018 y 2025. Cada una de estas instancias contiene información valiosa sobre la fecha y hora de la infracción, el código específico de la norma transgredida, la clase o servicio de vehículo infractor (automóvil, motocicleta, transporte público, vehículo de carga, entre otros), y la dirección o ubicación geográfica donde se cometió la infracción, entre otras variables de interés.</p>
+<p>La disponibilidad de este volumen de información, organizada de manera sistemática a través del portal de Datos Abiertos del Gobierno de Colombia, constituye una oportunidad única para llevar a cabo un análisis profundo y multidimensional del comportamiento vial en la ciudad. Este tipo de análisis no solo resulta relevante desde una perspectiva académica, sino que tiene implicaciones prácticas directas para la gestión pública, ya que permite a las secretarías de tránsito y movilidad identificar patrones de infracción, detectar zonas de alto riesgo, comprender la dinámica temporal de los comportamientos infractores y, fundamentalmente, anticipar tendencias futuras mediante herramientas de modelado predictivo.</p>
+<ul class="simple">
+<li><p><strong>Dataset principal</strong> : <a class="reference external" href="https://www.datos.gov.co/Transporte/Comparendos-Electr-nicos-Control-y-Regulaci-n-Barr/ps7z-yks5/about_data">https://www.datos.gov.co/Transporte/Comparendos-Electr-nicos-Control-y-Regulaci-n-Barr/ps7z-yks5/about_data</a></p></li>
+<li><p><strong>Dataset secundario</strong> : <a class="reference external" href="https://www.datos.gov.co/Transporte/Fotodetecci-n-en-Barranquilla/cpp6-je64/about_data">https://www.datos.gov.co/Transporte/Fotodetecci-n-en-Barranquilla/cpp6-je64/about_data</a></p></li>
+</ul>
+</section>
+<section id="objetivos-del-estudio">
+<h2>Objetivos del Estudio<a class="headerlink" href="#objetivos-del-estudio" title="Link to this heading">#</a></h2>
+<p>En este marco, la presente investigación se propone desarrollar un análisis integral y un modelado predictivo de los comparendos electrónicos en la ciudad de Barranquilla, abordando el fenómeno desde una perspectiva metodológica rigurosa que integra múltiples enfoques analíticos. El estudio se estructura en torno a seis objetivos específicos que guían el desarrollo del trabajo:</p>
+<ol class="arabic simple">
+<li><p>Caracterizar la frecuencia, proporción y distribución espacial de las infracciones de tránsito registradas en la ciudad.</p></li>
+<li><p>Evaluar los patrones de tendencia y estacionalidad presentes en las series temporales de las diferentes infracciones.</p></li>
+<li><p>Implementar una amplia gama de modelos estadísticos clásicos y de aprendizaje automático para el pronóstico de dichas infracciones.</p></li>
+<li><p>Comparar sistemáticamente el desempeño de estos modelos utilizando métricas de evaluación consolidadas.</p></li>
+<li><p>Seleccionar el modelo óptimo para cada tipo de infracción analizada.</p></li>
+<li><p>Generar pronósticos para el año 2026 que permitan anticipar el comportamiento esperado de las infracciones en un horizonte temporal aún no registrado en las bases de datos públicas.</p></li>
+</ol>
+</section>
+<section id="metodologia-general-y-fases-del-analisis">
+<h2>Metodología General y Fases del Análisis<a class="headerlink" href="#metodologia-general-y-fases-del-analisis" title="Link to this heading">#</a></h2>
+<p>Para alcanzar estos objetivos, la investigación despliega un conjunto de fases metodológicas que se articulan de manera secuencial y acumulativa.</p>
+<section id="analisis-exploratorio-de-datos">
+<h3>Análisis Exploratorio de Datos<a class="headerlink" href="#analisis-exploratorio-de-datos" title="Link to this heading">#</a></h3>
+<p>La primera fase corresponde al análisis exploratorio de los datos, que se subdivide a su vez en un análisis univariado; donde se examina de manera independiente la distribución, frecuencias y estadísticos descriptivos de cada variable y un análisis bivariado donde se exploran las relaciones y asociaciones entre pares de variables, identificando cómo se comporta una variable en función de otra y detectando patrones conjuntos que no son evidentes en el examen individual de las características del dataset.</p>
+</section>
+<section id="georreferenciacion-y-analisis-espacial">
+<h3>Georreferenciación y Análisis Espacial<a class="headerlink" href="#georreferenciacion-y-analisis-espacial" title="Link to this heading">#</a></h3>
+<p>La segunda fase incorpora la dimensión espacial al análisis mediante la georreferenciación de los puntos de control. Utilizando archivos Shapefile de Barranquilla por localidad, se ubican geográficamente las cámaras de fotodetección y se visualiza su distribución en el territorio urbano. Este análisis permite identificar la cobertura espacial del sistema de vigilancia, detectar zonas con mayor o menor concentración de cámaras, y establecer relaciones preliminares entre la ubicación de los puntos de control y el volumen de infracciones detectadas, sentando las bases conceptuales para futuros análisis de dependencia espacial o identificación de clusters de infracciones.</p>
+</section>
+<section id="descomposicion-temporal-de-las-series">
+<h3>Descomposición Temporal de las Series<a class="headerlink" href="#descomposicion-temporal-de-las-series" title="Link to this heading">#</a></h3>
+<p>La tercera fase se centra en la descomposición temporal de las series de comparendos electrónicos. Aplicando métodos como la descomposición STL (Seasonal and Trend decomposition using Loess) y su extensión MSTL (Multiple Seasonal-Trend decomposition using Loess), se separan y analizan los componentes estructurales de cada serie: la tendencia, que refleja la evolución de largo plazo de las infracciones; la estacionalidad, que captura patrones cíclicos que se repiten en intervalos regulares (como diferencias entre días de semana o variaciones estacionales anuales); y los residuos, que corresponden al componente aleatorio o irregular no explicado por los dos primeros. Este análisis se complementa con pruebas estadísticas robustas, como la prueba de Dickey-Fuller Aumentada (ADF) para evaluar la estacionariedad de las series, y la prueba de Ljung-Box para verificar la presencia de autocorrelación en los residuos, validando así la idoneidad de los datos para aplicaciones predictivas.</p>
+</section>
+<section id="modelado-predictivo">
+<h3>Modelado Predictivo<a class="headerlink" href="#modelado-predictivo" title="Link to this heading">#</a></h3>
+<p>La cuarta y más extensa fase corresponde al modelado predictivo propiamente dicho. Para cada una de las cinco infracciones más representativas en términos de frecuencia y relevancia para la seguridad vial: C29 (exceso de velocidad), C02 (estacionamiento en sitios prohibidos), C03 (bloquear calzada o intersección), D04 (no detenerse ante una luz roja o amarilla de semáforo) y C32 (no respetar el paso de peatones); se implementa una metodología iterativa acumulativa.</p>
+</section>
+</section>
+<section id="modelos-implementados">
+<h2>Modelos Implementados<a class="headerlink" href="#modelos-implementados" title="Link to this heading">#</a></h2>
+<section id="modelos-estadisticos-clasicos">
+<h3>Modelos Estadísticos Clásicos<a class="headerlink" href="#modelos-estadisticos-clasicos" title="Link to this heading">#</a></h3>
+<p>El proceso inicia con el modelo Holt-Winters, cuyos parámetros de suavizamiento se ajustan con base en los hallazgos del análisis exploratorio y la descomposición temporal. Este modelo, que descompone la serie en sus componentes de nivel, tendencia y estacionalidad, ofrece una primera aproximación al comportamiento predictivo del fenómeno.</p>
+<p>Posteriormente, se incorporan secuencialmente los modelos ARIMA (AutoRegressive Integrated Moving Average) y SARIMA (Seasonal ARIMA), que constituyen referentes clásicos en el análisis de series temporales por su capacidad para modelar dependencias lineales y componentes estacionales. Se incluye también el modelo Dynamic Optimized Theta (DOT) , una extensión del método Theta que incorpora optimización automática de parámetros y mayor flexibilidad frente a comportamientos no lineales.</p>
+</section>
+<section id="modelos-de-regresion-regularizada">
+<h3>Modelos de Regresión Regularizada<a class="headerlink" href="#modelos-de-regresion-regularizada" title="Link to this heading">#</a></h3>
+<p>Desde el enfoque de regresión lineal regularizada, se implementan los modelos Ridge (regularización L2) y Lasso (regularización L1), que resultan particularmente útiles cuando se incorporan múltiples variables rezagadas y componentes estacionales, ayudando a mitigar problemas de multicolinealidad y sobreajuste.</p>
+</section>
+<section id="modelos-de-aprendizaje-automatico-basados-en-arboles">
+<h3>Modelos de Aprendizaje Automático basados en Árboles<a class="headerlink" href="#modelos-de-aprendizaje-automatico-basados-en-arboles" title="Link to this heading">#</a></h3>
+<p>En el ámbito del aprendizaje automático, se implementan tres modelos de ensamble basados en árboles de decisión: Random Forest, que combina múltiples árboles construidos de manera paralela e independiente promediando sus predicciones; XGBoost, que mejora al anterior mediante un enfoque secuencial basado en descenso del gradiente e incorpora términos de regularización para controlar la complejidad; y LightGBM, que introduce estrategias de crecimiento por hojas y muestreo basado en gradientes para lograr mayor eficiencia computacional sin sacrificar capacidad predictiva.</p>
+</section>
+<section id="modelo-basado-en-similitud">
+<h3>Modelo basado en Similitud<a class="headerlink" href="#modelo-basado-en-similitud" title="Link to this heading">#</a></h3>
+<p>Finalmente, se implementa el modelo de vecinos más cercanos (KNN), un enfoque basado en similitud que identifica los patrones históricos más parecidos al período actual para estimar el valor futuro.</p>
+</section>
+<section id="transformacion-de-series-para-modelos-de-aprendizaje-automatico">
+<h3>Transformación de Series para Modelos de Aprendizaje Automático<a class="headerlink" href="#transformacion-de-series-para-modelos-de-aprendizaje-automatico" title="Link to this heading">#</a></h3>
+<p>Es importante señalar que, a diferencia de modelos como ARIMA o Holt-Winters que fueron diseñados específicamente para series temporales, los modelos de aprendizaje automático mencionados (Random Forest, XGBoost, LightGBM y KNN) requieren una transformación previa del problema: la serie temporal debe convertirse en un problema de aprendizaje supervisado mediante la creación de características autorregresivas utilizando ventanas deslizantes, complementadas con variables asociadas a la tendencia y estacionalidad de la serie. Esta transformación, aunque adicional, permite que estos modelos aprovechen una de sus principales ventajas: la capacidad de capturar relaciones no lineales, problemática que frecuentemente limita el desempeño de los modelos lineales tradicionales.</p>
+</section>
+</section>
+<section id="metricas-de-evaluacion-del-desempeno">
+<h2>Métricas de Evaluación del Desempeño<a class="headerlink" href="#metricas-de-evaluacion-del-desempeno" title="Link to this heading">#</a></h2>
+<p>La evaluación del desempeño de todos los modelos se realiza mediante un conjunto de métricas consolidadas en la literatura especializada: el Error Cuadrático Medio (MSE), la Raíz del Error Cuadrático Medio (RMSE), el Error Absoluto Medio (MAE), el Error Porcentual Absoluto Medio (MAPE) y el Error Porcentual Absoluto Medio Simétrico (SMAPE). Estas métricas, cada una con sus fortalezas y limitaciones, permiten una comparación robusta y multidimensional de la precisión predictiva de los modelos, considerando tanto la magnitud absoluta de los errores como su expresión porcentual relativa al valor real.</p>
+</section>
+<section id="generacion-de-pronosticos-para-2026">
+<h2>Generación de pronósticos para 2026<a class="headerlink" href="#generacion-de-pronosticos-para-2026" title="Link to this heading">#</a></h2>
+<p>Una vez completada la fase de modelado y comparación, se selecciona el mejor modelo para cada tipo de infracción. Con este modelo óptimo se procede a generar pronósticos del volumen esperado de comparendos para el año 2026, un período cuyos datos aún no han sido publicados por la Alcaldía de Barranquilla en el portal de Datos Abiertos del Gobierno de Colombia. Estos pronósticos no solo constituyen un ejercicio de validación externa de la capacidad predictiva de los modelos, sino que ofrecen información estratégica de alto valor para la gestión pública en seguridad vial.</p>
+</section>
+<section id="relevancia-y-aportes-del-estudio">
+<h2>Relevancia y Aportes del Estudio<a class="headerlink" href="#relevancia-y-aportes-del-estudio" title="Link to this heading">#</a></h2>
+<p>La relevancia de esta investigación trasciende el ámbito estrictamente académico. En un contexto donde los recursos públicos son limitados y las decisiones deben basarse en evidencia, contar con modelos capaces de anticipar con precisión el comportamiento de las infracciones de tránsito permite a las autoridades diseñar intervenciones más efectivas y eficientes. Por ejemplo, los pronósticos pueden:</p>
+<ul class="simple">
+<li><p>Identificar semanas o meses del año con mayor concentración esperada de excesos de velocidad, orientando la programación de controles preventivos.</p></li>
+<li><p>Señalar zonas horarias con alta probabilidad de infracciones por paso de semáforo en rojo, facilitando la optimización de los tiempos de los dispositivos de control.</p></li>
+<li><p>Anticipar tendencias crecientes en infracciones relacionadas con el respeto a los peatones, activando campañas de concientización dirigidas.</p></li>
+</ul>
+</section>
+<section id="brecha-de-conocimiento-y-contribucion-original">
+<h2>Brecha de Conocimiento y Contribución Original<a class="headerlink" href="#brecha-de-conocimiento-y-contribucion-original" title="Link to this heading">#</a></h2>
+<p>Adicionalmente, el presente estudio aborda una brecha significativa en la literatura especializada. Si bien existen antecedentes internacionales de aplicación de modelos predictivos a series temporales de infracciones de tránsito, como el trabajo de Rezaei Ghahroodi y colaboradores que emplea modelos SARIMA para predecir el número de infracciones en otros contextos geográficos, se evidencia una clara carencia de estudios que realicen una comparativa sistemática y exhaustiva entre múltiples enfoques de modelado aplicados específicamente al análisis de comparendos electrónicos en Colombia y, más particularmente, en la ciudad de Barranquilla. Esta investigación busca llenar dicho vacío, aportando evidencia empírica local que pueda orientar tanto futuros desarrollos metodológicos como decisiones de política pública.</p>
+</section>
+<section id="estructura-visual-del-proyecto">
+<h2>Estructura Visual del Proyecto<a class="headerlink" href="#estructura-visual-del-proyecto" title="Link to this heading">#</a></h2>
+<p>La siguiente imagen presenta de manera sintética la estructura del proyecto, organizada en dos grandes bloques: las variables analizadas con sus principales categorías, y el flujo de trabajo del modelado predictivo.</p>
+<p><img alt="alt text" src="_images/imagen_descriptiva.png" /></p>
+</section>
+<section id="sintesis-y-cierre">
+<h2>Síntesis y Cierre<a class="headerlink" href="#sintesis-y-cierre" title="Link to this heading">#</a></h2>
+<p>En síntesis, esta investigación se propone no solo caracterizar el estado actual de las infracciones de tránsito captadas por fotodetección en Barranquilla, sino también dotar a los actores involucrados: secretarías de tránsito, autoridades de movilidad, planificadores urbanos, academia y ciudadanía en general de herramientas analíticas y predictivas rigurosas que permitan anticipar comportamientos futuros. En un mundo donde los datos abundan pero la capacidad de convertirlos en inteligencia accionable es aún limitada, este trabajo aspira a contribuir con un eslabón más en la construcción de ciudades más seguras, ordenadas y humanas, donde la tecnología al servicio de la movilidad se traduzca efectivamente en la salvaguarda de la vida y el bienestar de todos los actores viales.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="exploracion_inicial.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exploración Inicial</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contextualizacion-del-problema-movilidad-urbana-y-foto-comparendos">Contextualización del Problema: Movilidad Urbana y Foto-Comparendos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#justificacion-del-caso-de-estudio-barranquilla-como-escenario-privilegiado">Justificación del Caso de Estudio: Barranquilla como Escenario Privilegiado</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-del-estudio">Objetivos del Estudio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metodologia-general-y-fases-del-analisis">Metodología General y Fases del Análisis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-exploratorio-de-datos">Análisis Exploratorio de Datos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#georreferenciacion-y-analisis-espacial">Georreferenciación y Análisis Espacial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descomposicion-temporal-de-las-series">Descomposición Temporal de las Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelado-predictivo">Modelado Predictivo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-implementados">Modelos Implementados</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-estadisticos-clasicos">Modelos Estadísticos Clásicos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-regresion-regularizada">Modelos de Regresión Regularizada</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-de-aprendizaje-automatico-basados-en-arboles">Modelos de Aprendizaje Automático basados en Árboles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelo-basado-en-similitud">Modelo basado en Similitud</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformacion-de-series-para-modelos-de-aprendizaje-automatico">Transformación de Series para Modelos de Aprendizaje Automático</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metricas-de-evaluacion-del-desempeno">Métricas de Evaluación del Desempeño</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generacion-de-pronosticos-para-2026">Generación de pronósticos para 2026</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relevancia-y-aportes-del-estudio">Relevancia y Aportes del Estudio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brecha-de-conocimiento-y-contribucion-original">Brecha de Conocimiento y Contribución Original</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estructura-visual-del-proyecto">Estructura Visual del Proyecto</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintesis-y-cierre">Síntesis y Cierre</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Marquez & Cristian Linero
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

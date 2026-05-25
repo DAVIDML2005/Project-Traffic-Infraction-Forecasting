@@ -1,0 +1,1455 @@
+Estadísticas Descriptivas - Código D04
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>mes_nombre</th>
+      <th>Enero</th>
+      <th>Febrero</th>
+      <th>Marzo</th>
+      <th>Abril</th>
+      <th>Mayo</th>
+      <th>Junio</th>
+      <th>Julio</th>
+      <th>Agosto</th>
+      <th>Septiembre</th>
+      <th>Octubre</th>
+      <th>Noviembre</th>
+      <th>Diciembre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>537</td>
+      <td>509</td>
+      <td>586</td>
+      <td>698</td>
+      <td>661</td>
+      <td>603</td>
+      <td>488</td>
+      <td>478</td>
+      <td>541</td>
+      <td>564</td>
+      <td>520</td>
+      <td>602</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>179</td>
+      <td>194</td>
+      <td>180</td>
+      <td>288</td>
+      <td>352</td>
+      <td>293</td>
+      <td>207</td>
+      <td>134</td>
+      <td>195</td>
+      <td>206</td>
+      <td>322</td>
+      <td>214</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>334</td>
+      <td>308</td>
+      <td>303</td>
+      <td>258</td>
+      <td>254</td>
+      <td>187</td>
+      <td>285</td>
+      <td>293</td>
+      <td>313</td>
+      <td>308</td>
+      <td>81</td>
+      <td>277</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>361</td>
+      <td>375</td>
+      <td>461</td>
+      <td>508</td>
+      <td>342</td>
+      <td>322</td>
+      <td>333</td>
+      <td>396</td>
+      <td>420</td>
+      <td>393</td>
+      <td>275</td>
+      <td>466</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>575</td>
+      <td>420</td>
+      <td>592</td>
+      <td>788</td>
+      <td>656</td>
+      <td>670</td>
+      <td>404</td>
+      <td>474</td>
+      <td>490</td>
+      <td>567</td>
+      <td>478</td>
+      <td>564</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>620</td>
+      <td>644</td>
+      <td>714</td>
+      <td>863</td>
+      <td>959</td>
+      <td>824</td>
+      <td>621</td>
+      <td>519</td>
+      <td>697</td>
+      <td>741</td>
+      <td>758</td>
+      <td>763</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>846</td>
+      <td>812</td>
+      <td>847</td>
+      <td>1080</td>
+      <td>1084</td>
+      <td>984</td>
+      <td>847</td>
+      <td>734</td>
+      <td>812</td>
+      <td>808</td>
+      <td>956</td>
+      <td>906</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+--------------------------------------------------
+Prueba de normalidad (Shapiro-Wilk)
+--------------------------------------------------
+Enero: p-valor = 3.1508e-01 -> Normal
+Febrero: p-valor = 1.1229e-01 -> Normal
+Marzo: p-valor = 7.6803e-01 -> Normal
+Abril: p-valor = 5.3186e-01 -> Normal
+Mayo: p-valor = 5.2820e-02 -> Normal
+Junio: p-valor = 4.4257e-01 -> Normal
+Julio: p-valor = 1.5886e-01 -> Normal
+Agosto: p-valor = 8.3680e-01 -> Normal
+Septiembre: p-valor = 3.1162e-01 -> Normal
+Octubre: p-valor = 1.9693e-01 -> Normal
+Noviembre: p-valor = 5.4696e-01 -> Normal
+Diciembre: p-valor = 8.2678e-01 -> Normal
+¿Se cumple normalidad en todos los meses? Sí
+
+Levene p-valor: 6.6028e-02
+¿Varianzas iguales? Sí
+
+Se cumplen los supuestos → Se aplica ANOVA
+
+Estadístico F: 0.6363
+P-valor: 7.9291e-01
+¿Hay diferencias entre meses? No
+
+Total de infracciones D04: 54,303
+
+
+Resultados de la descomposición con STL:
+
+#1) Tendencia:
+std: 156.219
+promedio: 561.937
+máximo: 2019-05 (782.496)
+mínimo: 2025-12 (78.814)
+Pendiente: -2.1003 comparendos por mes
+R²: 0.1403
+P-valor tendencia: 1.7046e-04
+¿Tendencia significativa? Sí
+
+#2) Estacionalidad:
+std: 127.486
+promedio: 2.911
+máximo: 2022-05 (347.017)
+mínimo: 2018-09 (-251.325)
+Amplitud estacional: 598.3417 comparendos
+Variabilidad explicada por estacionalidad: 25.8901%
+
+--------------------------------------------------
+Prueba ADF sobre la serie original
+--------------------------------------------------
+Estadístico ADF: -4.4109
+P-valor: 2.8387e-04
+Valores críticos:
+  1%: -3.5011
+  5%: -2.8925
+  10%: -2.5833
+La serie original es estacionaria
+
+--------------------------------------------------
+Prueba ADF sobre los residuos
+--------------------------------------------------
+Estadístico ADF: -7.9684
+P-valor: 2.8244e-12
+Valores críticos:
+  1%: -3.5011
+  5%: -2.8925
+  10%: -2.5833
+Los residuos son estacionarios
+
+Tanto la serie original como los residuos son estacionarios
+
+#3) Residuos:
+std: 148.724
+promedio: 0.808
+máximo: 2025-08 (503.773)
+mínimo: 2020-05 (-581.302)
+--------------------------------------------------
+Prueba Ljung-Box
+--------------------------------------------------
+      lb_stat  lb_pvalue
+6    5.189444   0.519755
+12  15.680621   0.206306
+18  16.970266   0.525150
+
+¿Los residuos son ruido blanco? Sí
+
+Prueba t (media cero) p-valor: 9.5766e-01
+¿Residuos centrados en cero? Sí
+
+Shapiro-Wilk p-valor: 1.3525e-06
+¿Residuos normales? No
+
+
+Interpretaciones de la descomposición con STL:
+**Código D04 (Paso de semáforo en rojo o señal de pare)**
+
+ - **Análisis de tendencia**: La pendiente negativa de -2.10 comparendos por mes es estadísticamente significativa (p-valor = 0.0002). El R² de 14.0% es bajo, indicando que la tendencia explica una pequeña parte de la variabilidad. Se confirma una leve disminución sostenida.
+
+ - **Análisis de estacionalidad**: La estacionalidad explica el **25.89%** de la variabilidad total, el porcentaje más alto de todos los códigos. La amplitud de 598 comparendos es la menor en términos absolutos, pero su peso relativo es el más importante, indicando que el paso de semáforo en rojo tiene el patrón estacional más definido.
+
+ - **Análisis de estacionariedad**: Tanto la serie original como los residuos son estacionarios.
+
+ - **Análisis de residuos**: **Los residuos son ruido blanco** (p-valores Ljung-Box > 0.05 para todos los rezagos), están centrados en cero (p-valor = 0.9577) y no son normales. Este es el único código donde los residuos cumplen con la condición de ruido blanco, lo que indica que el modelo de descomposición capturó adecuadamente toda la estructura temporal de la serie.
+
+- **Gráfico de Autocorrelación (ACF) y Autocorrelación Parcial (PACF) - Código D04**: A diferencia de los demás códigos de infracción, en el código D04 casi todos los retardos (lags) se encuentran **dentro de las bandas de confianza** (el área sombreada azul). Solo el lag 1 en el PACF y en el ACF roza el límite superior, pero de forma muy leve y sin alcanzar niveles problemáticos, especialmente en comparación con los patrones observados en los códigos C29, C02 y C03. Esto indica que el modelo de descomposición ha capturado exitosamente casi toda la dependencia temporal de la serie correspondiente al paso de semáforo en rojo. Los residuos son prácticamente independientes entre sí, lo que significa que el modelo no presenta problemas significativos de autocorrelación serial.
+
+- **Gráfico de la distribución de los residuos - Código D04**: El histograma muestra una forma mucho más simétrica y centrada en cero en comparación con los otros códigos analizados. Aunque todavía existen algunos valores atípicos (outliers) en los extremos (-600 y +500), la curva de densidad (KDE) se ajusta mucho mejor a la forma de una distribución normal. Esto indica que los errores del modelo para el código D04 tienen una varianza más constante y menos sesgo que en los demás códigos. En consecuencia, el modelo es mucho más fiable para realizar inferencias estadísticas o pronósticos sobre las infracciones relacionadas con el paso de semáforos en rojo o señal de pare, lo cual es consistente con los buenos resultados obtenidos en las pruebas de ruido blanco y estacionariedad para este código.
+
+
+Resultados del modelo Holt-Winters:
+--------------------------------------------------
+Validación cruzada - Holt-Winters (D04)
+--------------------------------------------------
+
+--- SES (Simple) ---
+  Fold 1: RMSE=128.54, MAE=107.46, MAPE=36.24%, SMAPE=27.49%, MSE=16521.27
+  Fold 2: RMSE=368.46, MAE=308.37, MAPE=36.96%, SMAPE=47.73%, MSE=135764.00
+  Fold 3: RMSE=363.65, MAE=304.67, MAPE=78.95%, SMAPE=48.13%, MSE=132241.64
+  Fold 4: RMSE=281.86, MAE=229.86, MAPE=29.77%, SMAPE=36.47%, MSE=79444.01
+  Promedio -> RMSE=285.63, MAE=237.59, MAPE=45.48%, SMAPE=39.96%, MSE=90992.73
+
+--- Holt lineal ---
+  Fold 1: RMSE=123.90, MAE=104.69, MAPE=34.84%, SMAPE=26.95%, MSE=15350.29
+  Fold 2: RMSE=377.52, MAE=317.59, MAPE=38.16%, SMAPE=49.66%, MSE=142520.40
+  Fold 3: RMSE=405.85, MAE=342.98, MAPE=88.13%, SMAPE=51.91%, MSE=164713.35
+  Fold 4: RMSE=283.60, MAE=231.30, MAPE=29.93%, SMAPE=36.76%, MSE=80428.72
+  Promedio -> RMSE=297.72, MAE=249.14, MAPE=47.76%, SMAPE=41.32%, MSE=100753.19
+
+--- Holt amortiguado ---
+  Fold 1: RMSE=131.10, MAE=109.10, MAPE=36.98%, SMAPE=27.81%, MSE=17187.75
+  Fold 2: RMSE=368.08, MAE=307.99, MAPE=36.91%, SMAPE=47.65%, MSE=135483.64
+  Fold 3: RMSE=396.48, MAE=334.63, MAPE=86.12%, SMAPE=51.11%, MSE=157200.02
+  Fold 4: RMSE=282.69, MAE=230.44, MAPE=29.82%, SMAPE=36.58%, MSE=79914.47
+  Promedio -> RMSE=294.59, MAE=245.54, MAPE=47.46%, SMAPE=40.79%, MSE=97446.47
+
+--- Estacional aditiva ---
+  Fold 1: RMSE=123.71, MAE=86.17, MAPE=27.36%, SMAPE=23.38%, MSE=15304.29
+  Fold 2: RMSE=417.30, MAE=358.29, MAPE=43.47%, SMAPE=59.67%, MSE=174138.87
+  Fold 3: RMSE=321.84, MAE=264.90, MAPE=69.13%, SMAPE=43.52%, MSE=103583.34
+  Fold 4: RMSE=310.36, MAE=256.25, MAPE=33.37%, SMAPE=42.86%, MSE=96323.84
+  Promedio -> RMSE=293.30, MAE=241.41, MAPE=43.34%, SMAPE=42.36%, MSE=97337.58
+
+--- Holt‑Winters aditivo ---
+  Fold 1: RMSE=124.83, MAE=91.37, MAPE=27.63%, SMAPE=25.06%, MSE=15581.39
+  Fold 2: RMSE=433.34, MAE=374.43, MAPE=45.63%, SMAPE=63.55%, MSE=187783.64
+  Fold 3: RMSE=363.24, MAE=302.85, MAPE=78.24%, SMAPE=47.60%, MSE=131945.20
+  Fold 4: RMSE=317.05, MAE=261.89, MAPE=34.12%, SMAPE=44.19%, MSE=100523.24
+  Promedio -> RMSE=309.62, MAE=257.64, MAPE=46.41%, SMAPE=45.10%, MSE=108958.37
+
+--- HW aditivo amortiguado ---
+  Fold 1: RMSE=150.23, MAE=125.67, MAPE=32.76%, SMAPE=36.75%, MSE=22569.18
+  Fold 2: RMSE=415.28, MAE=356.14, MAPE=43.21%, SMAPE=59.20%, MSE=172458.50
+  Fold 3: RMSE=354.98, MAE=295.35, MAPE=76.45%, SMAPE=46.82%, MSE=126008.87
+  Fold 4: RMSE=309.09, MAE=255.25, MAPE=33.28%, SMAPE=42.67%, MSE=95533.74
+  Promedio -> RMSE=307.39, MAE=258.10, MAPE=46.42%, SMAPE=46.36%, MSE=104142.57
+
+--------------------------------------------------
+Mejor modelo Holt‑Winters según RMSE en validación cruzada
+--------------------------------------------------
+Modelo seleccionado: SES (Simple)
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>modelo</th>
+      <th>RMSE</th>
+      <th>MAE</th>
+      <th>MAPE</th>
+      <th>SMAPE</th>
+      <th>MSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SES (Simple)</td>
+      <td>285.63</td>
+      <td>237.59</td>
+      <td>45.48</td>
+      <td>39.96</td>
+      <td>90992.73</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Estacional aditiva</td>
+      <td>293.30</td>
+      <td>241.41</td>
+      <td>43.34</td>
+      <td>42.36</td>
+      <td>97337.58</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Holt amortiguado</td>
+      <td>294.59</td>
+      <td>245.54</td>
+      <td>47.46</td>
+      <td>40.79</td>
+      <td>97446.47</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Holt lineal</td>
+      <td>297.72</td>
+      <td>249.14</td>
+      <td>47.76</td>
+      <td>41.32</td>
+      <td>100753.19</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>HW aditivo amortiguado</td>
+      <td>307.39</td>
+      <td>258.10</td>
+      <td>46.42</td>
+      <td>46.36</td>
+      <td>104142.57</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Holt‑Winters aditivo</td>
+      <td>309.62</td>
+      <td>257.64</td>
+      <td>46.41</td>
+      <td>45.10</td>
+      <td>108958.37</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+--------------------------------------------------
+Evaluación final en Test (2025) - SES (Simple)
+--------------------------------------------------
+RMSE: 250.61
+MAE: 235.12
+MAPE: 111.22%
+SMAPE: 58.52%
+MSE: 62805.11
+
+Errores por mes (Test 2025):
+Enero: -199
+Febrero: -233
+Marzo: -238
+Abril: -283
+Mayo: -199
+Junio: -222
+Julio: -205
+Agosto: -54
+Septiembre: -226
+Octubre: -233
+Noviembre: -460
+Diciembre: -264
+
+
+Resultados del modelo ARIMA:
+--------------------------------------------------
+Validación cruzada - Comparación de modelos ARIMA (D04)
+--------------------------------------------------
+
+--- ARIMA(1,0,0) ---
+  Fold 1: RMSE=223.55, MAE=192.87, MAPE=64.20%, SMAPE=42.30%, MSE=49972.72
+  Fold 2: RMSE=281.28, MAE=235.68, MAPE=29.98%, SMAPE=34.13%, MSE=79115.75
+  Fold 3: RMSE=222.83, MAE=184.81, MAPE=44.90%, SMAPE=33.82%, MSE=49653.98
+  Fold 4: RMSE=211.70, MAE=186.75, MAPE=28.02%, SMAPE=28.83%, MSE=44816.84
+  Promedio -> RMSE=234.84, MAE=200.03, MAPE=41.78%, SMAPE=34.77%, MSE=55889.82
+
+--- ARIMA(0,0,1) ---
+  Fold 1: RMSE=246.29, MAE=221.02, MAPE=71.77%, SMAPE=46.83%, MSE=60660.75
+  Fold 2: RMSE=279.76, MAE=231.35, MAPE=29.50%, SMAPE=33.38%, MSE=78266.06
+  Fold 3: RMSE=217.33, MAE=194.55, MAPE=44.14%, SMAPE=35.65%, MSE=47232.65
+  Fold 4: RMSE=211.70, MAE=187.35, MAPE=28.12%, SMAPE=28.92%, MSE=44817.26
+  Promedio -> RMSE=238.77, MAE=208.57, MAPE=43.38%, SMAPE=36.20%, MSE=57744.18
+
+--- ARIMA(1,0,1) ---
+  Fold 1: RMSE=197.78, MAE=166.49, MAPE=56.35%, SMAPE=38.02%, MSE=39115.94
+  Fold 2: RMSE=305.08, MAE=251.75, MAPE=30.67%, SMAPE=36.87%, MSE=93073.41
+  Fold 3: RMSE=224.84, MAE=184.63, MAPE=45.80%, SMAPE=33.76%, MSE=50551.59
+  Fold 4: RMSE=213.31, MAE=189.81, MAPE=28.28%, SMAPE=29.36%, MSE=45501.81
+  Promedio -> RMSE=235.25, MAE=198.17, MAPE=40.27%, SMAPE=34.50%, MSE=57060.69
+
+--- ARIMA(2,0,0) ---
+  Fold 1: RMSE=197.76, MAE=166.39, MAPE=56.32%, SMAPE=37.99%, MSE=39107.90
+  Fold 2: RMSE=294.20, MAE=245.37, MAPE=30.41%, SMAPE=35.84%, MSE=86551.96
+  Fold 3: RMSE=224.07, MAE=184.28, MAPE=45.41%, SMAPE=33.71%, MSE=50207.76
+  Fold 4: RMSE=212.49, MAE=188.68, MAPE=28.21%, SMAPE=29.16%, MSE=45152.46
+  Promedio -> RMSE=232.13, MAE=196.18, MAPE=40.09%, SMAPE=34.18%, MSE=55255.02
+
+--- ARIMA(0,0,2) ---
+  Fold 1: RMSE=237.01, MAE=210.24, MAPE=68.82%, SMAPE=45.11%, MSE=56172.61
+  Fold 2: RMSE=285.26, MAE=242.25, MAPE=31.93%, SMAPE=35.19%, MSE=81372.18
+  Fold 3: RMSE=227.79, MAE=199.71, MAPE=46.12%, SMAPE=36.23%, MSE=51889.00
+  Fold 4: RMSE=215.28, MAE=190.25, MAPE=28.91%, SMAPE=29.37%, MSE=46343.84
+  Promedio -> RMSE=241.33, MAE=210.61, MAPE=43.95%, SMAPE=36.47%, MSE=58944.40
+
+--- ARIMA(2,0,1) ---
+  Fold 1: RMSE=203.84, MAE=172.11, MAPE=58.09%, SMAPE=38.92%, MSE=41552.67
+  Fold 2: RMSE=291.72, MAE=244.27, MAPE=30.48%, SMAPE=35.66%, MSE=85097.70
+  Fold 3: RMSE=216.35, MAE=181.07, MAPE=42.60%, SMAPE=33.22%, MSE=46808.23
+  Fold 4: RMSE=218.75, MAE=194.11, MAPE=28.53%, SMAPE=30.08%, MSE=47852.14
+  Promedio -> RMSE=232.67, MAE=197.89, MAPE=39.92%, SMAPE=34.47%, MSE=55327.69
+
+--- ARIMA(1,0,2) ---
+  Fold 1: RMSE=211.66, MAE=179.17, MAPE=60.32%, SMAPE=40.06%, MSE=44801.19
+  Fold 2: RMSE=296.62, MAE=246.05, MAPE=30.26%, SMAPE=35.91%, MSE=87983.98
+  Fold 3: RMSE=228.74, MAE=188.12, MAPE=47.48%, SMAPE=34.31%, MSE=52320.59
+  Fold 4: RMSE=219.68, MAE=194.44, MAPE=28.42%, SMAPE=30.13%, MSE=48258.72
+  Promedio -> RMSE=239.17, MAE=201.95, MAPE=41.62%, SMAPE=35.10%, MSE=58341.12
+
+--- ARIMA(1,1,0) ---
+  Fold 1: RMSE=126.93, MAE=106.45, MAPE=35.77%, SMAPE=27.29%, MSE=16111.20
+  Fold 2: RMSE=357.54, MAE=299.33, MAPE=36.09%, SMAPE=45.93%, MSE=127833.98
+  Fold 3: RMSE=373.12, MAE=314.01, MAPE=81.11%, SMAPE=49.09%, MSE=139219.34
+  Fold 4: RMSE=242.28, MAE=208.18, MAPE=28.87%, SMAPE=32.50%, MSE=58697.94
+  Promedio -> RMSE=274.97, MAE=231.99, MAPE=45.46%, SMAPE=38.71%, MSE=85465.61
+
+--- ARIMA(0,1,1) ---
+  Fold 1: RMSE=128.38, MAE=107.36, MAPE=36.19%, SMAPE=27.47%, MSE=16481.31
+  Fold 2: RMSE=367.40, MAE=307.27, MAPE=36.82%, SMAPE=47.50%, MSE=134985.11
+  Fold 3: RMSE=364.37, MAE=305.40, MAPE=79.11%, SMAPE=48.21%, MSE=132767.41
+  Fold 4: RMSE=280.90, MAE=229.20, MAPE=29.72%, SMAPE=36.34%, MSE=78904.36
+  Promedio -> RMSE=285.26, MAE=237.31, MAPE=45.46%, SMAPE=39.88%, MSE=90784.55
+
+--- ARIMA(1,1,1) ---
+  Fold 1: RMSE=126.90, MAE=106.43, MAPE=35.77%, SMAPE=27.29%, MSE=16104.45
+  Fold 2: RMSE=367.50, MAE=307.14, MAPE=36.79%, SMAPE=47.47%, MSE=135059.45
+  Fold 3: RMSE=331.47, MAE=275.03, MAPE=71.79%, SMAPE=45.00%, MSE=109869.67
+  Fold 4: RMSE=212.22, MAE=187.11, MAPE=28.03%, SMAPE=28.89%, MSE=45038.12
+  Promedio -> RMSE=259.52, MAE=218.93, MAPE=43.09%, SMAPE=37.16%, MSE=76517.92
+
+--------------------------------------------------
+Mejor modelo ARIMA según RMSE en validación cruzada
+--------------------------------------------------
+Modelo seleccionado: ARIMA(2,0,0)
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>modelo</th>
+      <th>RMSE</th>
+      <th>MAE</th>
+      <th>MAPE</th>
+      <th>SMAPE</th>
+      <th>MSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>ARIMA(2,0,0)</td>
+      <td>232.13</td>
+      <td>196.18</td>
+      <td>40.09</td>
+      <td>34.18</td>
+      <td>55255.02</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ARIMA(2,0,1)</td>
+      <td>232.67</td>
+      <td>197.89</td>
+      <td>39.92</td>
+      <td>34.47</td>
+      <td>55327.69</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>ARIMA(1,0,0)</td>
+      <td>234.84</td>
+      <td>200.03</td>
+      <td>41.78</td>
+      <td>34.77</td>
+      <td>55889.82</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ARIMA(1,0,1)</td>
+      <td>235.25</td>
+      <td>198.17</td>
+      <td>40.27</td>
+      <td>34.50</td>
+      <td>57060.69</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ARIMA(0,0,1)</td>
+      <td>238.77</td>
+      <td>208.57</td>
+      <td>43.38</td>
+      <td>36.20</td>
+      <td>57744.18</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>ARIMA(1,0,2)</td>
+      <td>239.17</td>
+      <td>201.95</td>
+      <td>41.62</td>
+      <td>35.10</td>
+      <td>58341.12</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ARIMA(0,0,2)</td>
+      <td>241.33</td>
+      <td>210.61</td>
+      <td>43.95</td>
+      <td>36.47</td>
+      <td>58944.40</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>ARIMA(1,1,1)</td>
+      <td>259.52</td>
+      <td>218.93</td>
+      <td>43.09</td>
+      <td>37.16</td>
+      <td>76517.92</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>ARIMA(1,1,0)</td>
+      <td>274.97</td>
+      <td>231.99</td>
+      <td>45.46</td>
+      <td>38.71</td>
+      <td>85465.61</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ARIMA(0,1,1)</td>
+      <td>285.26</td>
+      <td>237.31</td>
+      <td>45.46</td>
+      <td>39.88</td>
+      <td>90784.55</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+--------------------------------------------------
+Evaluación final en Test (2025) - ARIMA(2,0,0)
+--------------------------------------------------
+RMSE: 295.74
+MAE: 281.03
+MAPE: 130.28%
+SMAPE: 65.49%
+MSE: 87463.66
+
+Errores por mes (Test 2025):
+Enero: -184
+Febrero: -250
+Marzo: -274
+Abril: -329
+Mayo: -252
+Junio: -279
+Julio: -264
+Agosto: -114
+Septiembre: -287
+Octubre: -294
+Noviembre: -521
+Diciembre: -325
+
+
+Resultados del modelo SARIMA:
+--------------------------------------------------
+Validación cruzada - Comparación de modelos SARIMA (D04)
+--------------------------------------------------
+
+--- SARIMA(1,0,0)(0,0,0)[12] ---
+  Fold 1: RMSE=128.42, MAE=101.74, MAPE=26.60%, SMAPE=27.16%, MSE=16492.85
+  Fold 2: RMSE=412.15, MAE=350.50, MAPE=42.89%, SMAPE=57.22%, MSE=169869.25
+  Fold 3: RMSE=221.89, MAE=179.62, MAPE=45.57%, SMAPE=32.94%, MSE=49233.82
+  Fold 4: RMSE=318.51, MAE=269.86, MAPE=36.54%, SMAPE=45.96%, MSE=101447.13
+  Promedio -> RMSE=270.24, MAE=225.43, MAPE=37.90%, SMAPE=40.82%, MSE=84260.76
+
+--- SARIMA(2,0,0)(0,0,0)[12] ---
+  Fold 1: RMSE=113.17, MAE=96.63, MAPE=29.64%, SMAPE=25.34%, MSE=12808.21
+  Fold 2: RMSE=410.78, MAE=353.06, MAPE=43.07%, SMAPE=57.52%, MSE=168736.57
+  Fold 3: RMSE=289.61, MAE=237.85, MAPE=62.15%, SMAPE=40.65%, MSE=83874.34
+  Fold 4: RMSE=310.67, MAE=262.22, MAPE=34.81%, SMAPE=43.60%, MSE=96516.09
+  Promedio -> RMSE=281.06, MAE=237.44, MAPE=42.42%, SMAPE=41.78%, MSE=90483.80
+
+--- SARIMA(2,0,0)(1,0,0)[12] ---
+  Fold 1: RMSE=125.53, MAE=108.45, MAPE=31.87%, SMAPE=28.10%, MSE=15757.95
+  Fold 2: RMSE=461.98, MAE=407.18, MAPE=50.48%, SMAPE=70.68%, MSE=213427.36
+  Fold 3: RMSE=268.27, MAE=215.40, MAPE=56.68%, SMAPE=37.77%, MSE=71968.72
+  Fold 4: RMSE=354.44, MAE=311.51, MAPE=42.42%, SMAPE=55.59%, MSE=125626.17
+  Promedio -> RMSE=302.56, MAE=260.63, MAPE=45.36%, SMAPE=48.03%, MSE=106695.05
+
+--- SARIMA(2,0,0)(0,0,1)[12] ---
+  Fold 1: RMSE=154.57, MAE=128.12, MAPE=34.12%, SMAPE=33.64%, MSE=23891.86
+  Fold 2: RMSE=51173621113134.35, MAE=16513289025153.56, MAPE=1929561512549.50%, SMAPE=196.45%, MSE=2618739497830629795371679744.00
+  Fold 3: RMSE=260.58, MAE=210.18, MAPE=54.74%, SMAPE=37.05%, MSE=67902.99
+  Fold 4: RMSE=344.73, MAE=299.81, MAPE=40.53%, SMAPE=52.55%, MSE=118840.20
+  Promedio -> RMSE=12793405278473.56, MAE=4128322256447.92, MAPE=482390378169.72%, SMAPE=79.92%, MSE=654684874457657448842919936.00
+
+--- SARIMA(2,0,0)(1,0,1)[12] ---
+  Fold 1: RMSE=167.16, MAE=138.76, MAPE=39.87%, SMAPE=35.71%, MSE=27941.00
+  Fold 2: RMSE=113670.04, MAE=64157.13, MAPE=8077.95%, SMAPE=194.49%, MSE=12920877808.73
+  Fold 3: RMSE=262.14, MAE=210.64, MAPE=55.14%, SMAPE=37.12%, MSE=68715.30
+  Fold 4: RMSE=353.94, MAE=310.82, MAPE=42.31%, SMAPE=55.43%, MSE=125275.34
+  Promedio -> RMSE=28613.32, MAE=16204.34, MAPE=2053.82%, SMAPE=80.69%, MSE=3230274935.10
+
+--- SARIMA(1,0,1)(1,0,0)[12] ---
+  Fold 1: RMSE=125.05, MAE=108.46, MAPE=33.42%, SMAPE=27.89%, MSE=15636.65
+  Fold 2: RMSE=507.31, MAE=450.33, MAPE=56.07%, SMAPE=82.21%, MSE=257363.06
+  Fold 3: RMSE=298.73, MAE=249.17, MAPE=64.67%, SMAPE=42.13%, MSE=89236.93
+  Fold 4: RMSE=343.53, MAE=293.34, MAPE=38.72%, SMAPE=50.58%, MSE=118015.96
+  Promedio -> RMSE=318.65, MAE=275.32, MAPE=48.22%, SMAPE=50.70%, MSE=120063.15
+
+--- SARIMA(0,0,1)(1,0,0)[12] ---
+  Fold 1: RMSE=156.21, MAE=138.87, MAPE=42.46%, SMAPE=34.12%, MSE=24402.11
+  Fold 2: RMSE=483.09, MAE=422.91, MAPE=52.78%, SMAPE=76.59%, MSE=233373.72
+  Fold 3: RMSE=266.18, MAE=212.68, MAPE=50.47%, SMAPE=39.80%, MSE=70851.70
+  Fold 4: RMSE=304.17, MAE=260.88, MAPE=37.82%, SMAPE=47.74%, MSE=92517.22
+  Promedio -> RMSE=302.41, MAE=258.83, MAPE=45.88%, SMAPE=49.56%, MSE=105286.19
+
+--- SARIMA(2,0,0)(0,1,1)[12] ---
+  Fold 1: RMSE=248.14, MAE=222.43, MAPE=71.36%, SMAPE=46.69%, MSE=61573.78
+  Fold 2: RMSE=386.06, MAE=326.66, MAPE=39.84%, SMAPE=53.18%, MSE=149038.72
+  Fold 3: RMSE=416.29, MAE=363.65, MAPE=87.52%, SMAPE=52.51%, MSE=173295.02
+  Fold 4: RMSE=213.47, MAE=190.83, MAPE=28.00%, SMAPE=29.93%, MSE=45569.27
+  Promedio -> RMSE=315.99, MAE=275.89, MAPE=56.68%, SMAPE=45.58%, MSE=107369.20
+
+--- SARIMA(1,0,0)(0,1,1)[12] ---
+  Fold 1: RMSE=259.47, MAE=232.47, MAPE=74.04%, SMAPE=48.08%, MSE=67324.77
+  Fold 2: RMSE=293.24, MAE=251.99, MAPE=32.25%, SMAPE=37.40%, MSE=85988.07
+  Fold 3: RMSE=343.78, MAE=297.29, MAPE=72.10%, SMAPE=46.63%, MSE=118186.65
+  Fold 4: RMSE=209.82, MAE=186.00, MAPE=27.48%, SMAPE=29.08%, MSE=44024.34
+  Promedio -> RMSE=276.58, MAE=241.94, MAPE=51.47%, SMAPE=40.30%, MSE=78880.96
+
+--------------------------------------------------
+Mejor modelo SARIMA según RMSE en validación cruzada
+--------------------------------------------------
+Modelo seleccionado: SARIMA(1,0,0)(0,0,0)[12]
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>modelo</th>
+      <th>RMSE</th>
+      <th>MAE</th>
+      <th>MAPE</th>
+      <th>SMAPE</th>
+      <th>MSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SARIMA(1,0,0)(0,0,0)[12]</td>
+      <td>2.702400e+02</td>
+      <td>2.254300e+02</td>
+      <td>3.790000e+01</td>
+      <td>40.82</td>
+      <td>8.426076e+04</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>SARIMA(1,0,0)(0,1,1)[12]</td>
+      <td>2.765800e+02</td>
+      <td>2.419400e+02</td>
+      <td>5.147000e+01</td>
+      <td>40.30</td>
+      <td>7.888096e+04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SARIMA(2,0,0)(0,0,0)[12]</td>
+      <td>2.810600e+02</td>
+      <td>2.374400e+02</td>
+      <td>4.242000e+01</td>
+      <td>41.78</td>
+      <td>9.048380e+04</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>SARIMA(0,0,1)(1,0,0)[12]</td>
+      <td>3.024100e+02</td>
+      <td>2.588300e+02</td>
+      <td>4.588000e+01</td>
+      <td>49.56</td>
+      <td>1.052862e+05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SARIMA(2,0,0)(1,0,0)[12]</td>
+      <td>3.025600e+02</td>
+      <td>2.606300e+02</td>
+      <td>4.536000e+01</td>
+      <td>48.03</td>
+      <td>1.066951e+05</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>SARIMA(2,0,0)(0,1,1)[12]</td>
+      <td>3.159900e+02</td>
+      <td>2.758900e+02</td>
+      <td>5.668000e+01</td>
+      <td>45.58</td>
+      <td>1.073692e+05</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>SARIMA(1,0,1)(1,0,0)[12]</td>
+      <td>3.186500e+02</td>
+      <td>2.753200e+02</td>
+      <td>4.822000e+01</td>
+      <td>50.70</td>
+      <td>1.200631e+05</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SARIMA(2,0,0)(1,0,1)[12]</td>
+      <td>2.861332e+04</td>
+      <td>1.620434e+04</td>
+      <td>2.053820e+03</td>
+      <td>80.69</td>
+      <td>3.230275e+09</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>SARIMA(2,0,0)(0,0,1)[12]</td>
+      <td>1.279341e+13</td>
+      <td>4.128322e+12</td>
+      <td>4.823904e+11</td>
+      <td>79.92</td>
+      <td>6.546849e+26</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+--------------------------------------------------
+Evaluación final en Test (2025) - SARIMA(1,0,0)(0,0,0)[12]
+--------------------------------------------------
+RMSE: 98.17
+MAE: 77.92
+MAPE: 37.39%
+SMAPE: 26.72%
+MSE: 9636.56
+
+Errores por mes (Test 2025):
+Enero: -102
+Febrero: -113
+Marzo: -96
+Abril: -120
+Mayo: -16
+Junio: -20
+Julio: 14
+Agosto: 182
+Septiembre: 26
+Octubre: 34
+Noviembre: -178
+Diciembre: 31
+
+
+Resultados del modelo Dynamic Optimized Theta:
+--------------------------------------------------
+Validación cruzada - Optimización de Theta (D04)
+--------------------------------------------------
+
+--- Resultados de optimización de theta ---
+Mejor theta: 1.00 (RMSE CV promedio = 290.10)
+
+Top 5 configuraciones:
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>theta</th>
+      <th>RMSE</th>
+      <th>MAE</th>
+      <th>MAPE</th>
+      <th>SMAPE</th>
+      <th>MSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>1.00</td>
+      <td>290.102350</td>
+      <td>244.828339</td>
+      <td>49.292939</td>
+      <td>43.556224</td>
+      <td>88579.146555</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1.25</td>
+      <td>290.263644</td>
+      <td>246.821175</td>
+      <td>50.192174</td>
+      <td>43.851884</td>
+      <td>89141.184371</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.75</td>
+      <td>294.576122</td>
+      <td>248.861504</td>
+      <td>49.470983</td>
+      <td>44.270413</td>
+      <td>90913.609403</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1.50</td>
+      <td>295.601489</td>
+      <td>252.013947</td>
+      <td>51.468477</td>
+      <td>44.481070</td>
+      <td>92599.722852</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.50</td>
+      <td>302.726018</td>
+      <td>257.278416</td>
+      <td>50.492608</td>
+      <td>45.709285</td>
+      <td>96144.572916</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+--------------------------------------------------
+Validación cruzada - Theta dinámico óptimo (θ=1.00)
+--------------------------------------------------
+  Fold 1: RMSE=300.04, MAE=259.58, MAPE=80.06%, SMAPE=49.68%, MSE=90026.44
+  Fold 2: RMSE=394.92, MAE=329.34, MAPE=40.04%, SMAPE=54.16%, MSE=155961.23
+  Fold 3: RMSE=230.61, MAE=185.88, MAPE=43.16%, SMAPE=34.74%, MSE=53182.86
+  Fold 4: RMSE=234.83, MAE=204.51, MAPE=33.92%, SMAPE=35.65%, MSE=55146.06
+  Promedio -> RMSE=290.10, MAE=244.83, MAPE=49.29%, SMAPE=43.56%, MSE=286492.64
+
+--------------------------------------------------
+Evaluación final en Test (2025) - Theta optimizado (θ=1.00)
+--------------------------------------------------
+RMSE: 390.45
+MAE: 351.20
+MAPE: 132.70%
+SMAPE: 73.07%
+MSE: 152450.62
+
+Errores por mes (Test 2025):
+Enero: -270
+Febrero: -52
+Marzo: -341
+Abril: -527
+Mayo: -598
+Junio: -584
+Julio: -325
+Agosto: 127
+Septiembre: -458
+Octubre: -468
+Noviembre: -268
+Diciembre: -196
+
+
+Resultados del modelo regresión regularizada con Ridge:
+--------------------------------------------------
+Validación cruzada - Ridge Regression (D04)
+--------------------------------------------------
+
+--- Fold 1 ---
+Train: 2018-01 - 2020-12
+Val: 2021-01 - 2021-12
+Alpha seleccionado: 10.0000
+RMSE: 236.20
+MAE: 210.52
+MAPE: 62.59%
+SMAPE: 43.88%
+MSE: 55788.70
+
+--- Fold 2 ---
+Train: 2018-01 - 2021-12
+Val: 2022-01 - 2022-12
+Alpha seleccionado: 10.0000
+RMSE: 399.49
+MAE: 344.30
+MAPE: 42.17%
+SMAPE: 56.69%
+MSE: 159591.17
+
+--- Fold 3 ---
+Train: 2018-01 - 2022-12
+Val: 2023-01 - 2023-12
+Alpha seleccionado: 10.0000
+RMSE: 193.84
+MAE: 165.52
+MAPE: 40.27%
+SMAPE: 31.06%
+MSE: 37572.46
+
+--- Fold 4 ---
+Train: 2018-01 - 2023-12
+Val: 2024-01 - 2024-12
+Alpha seleccionado: 10.0000
+RMSE: 243.84
+MAE: 206.27
+MAPE: 27.31%
+SMAPE: 32.37%
+MSE: 59455.70
+
+--------------------------------------------------
+Métricas promedio en validación cruzada
+--------------------------------------------------
+RMSE: 268.34
+MAE: 231.65
+MAPE: 43.09%
+SMAPE: 41.00%
+MSE: 78102.01
+
+--------------------------------------------------
+Evaluación final en Test (2025) - Ridge Regression
+--------------------------------------------------
+Alpha seleccionado: 100.0000
+RMSE: 303.12
+MAE: 288.11
+MAPE: 132.22%
+SMAPE: 66.56%
+MSE: 91880.80
+
+Errores por mes (Test 2025):
+Enero: -250
+Febrero: -278
+Marzo: -278
+Abril: -358
+Mayo: -295
+Junio: -325
+Julio: -286
+Agosto: -82
+Septiembre: -228
+Octubre: -280
+Noviembre: -517
+Diciembre: -280
+
+
+Resultados del modelo regresión regularizada con Lasso:
+--------------------------------------------------
+Validación cruzada - Lasso Regression (D04)
+--------------------------------------------------
+
+--- Fold 1 ---
+Train: 2018-01 - 2020-12
+Val: 2021-01 - 2021-12
+Alpha seleccionado: 109.8541
+RMSE: 182.84
+MAE: 160.38
+MAPE: 50.34%
+SMAPE: 36.67%
+MSE: 33431.01
+
+--- Fold 2 ---
+Train: 2018-01 - 2021-12
+Val: 2022-01 - 2022-12
+Alpha seleccionado: 75.4312
+RMSE: 558.35
+MAE: 511.98
+MAPE: 66.06%
+SMAPE: 101.50%
+MSE: 311751.90
+
+--- Fold 3 ---
+Train: 2018-01 - 2022-12
+Val: 2023-01 - 2023-12
+Alpha seleccionado: 10000.0000
+RMSE: 206.54
+MAE: 186.87
+MAPE: 39.92%
+SMAPE: 34.52%
+MSE: 42660.02
+
+--- Fold 4 ---
+Train: 2018-01 - 2023-12
+Val: 2024-01 - 2024-12
+Alpha seleccionado: 51.7947
+RMSE: 231.94
+MAE: 202.37
+MAPE: 27.99%
+SMAPE: 31.53%
+MSE: 53798.34
+
+--------------------------------------------------
+Métricas promedio en validación cruzada
+--------------------------------------------------
+RMSE: 294.92
+MAE: 265.40
+MAPE: 46.08%
+SMAPE: 51.05%
+MSE: 110410.32
+
+--------------------------------------------------
+Evaluación final en Test (2025) - Lasso Regression
+--------------------------------------------------
+Alpha seleccionado: 35.5648
+RMSE: 314.70
+MAE: 294.83
+MAPE: 133.33%
+SMAPE: 67.07%
+MSE: 99035.21
+
+Errores por mes (Test 2025):
+Enero: -280
+Febrero: -330
+Marzo: -321
+Abril: -418
+Mayo: -345
+Junio: -352
+Julio: -293
+Agosto: -58
+Septiembre: -164
+Octubre: -253
+Noviembre: -500
+Diciembre: -223
+
+
+Resultados del modelo Random Forest:
+--------------------------------------------------
+Validación cruzada - Random Forest (D04)
+--------------------------------------------------
+
+--- Fold 1 ---
+Train: 2018-01 - 2020-12
+Val: 2021-01 - 2021-12
+Mejores parámetros: n_estimators=100, max_depth=5, min_samples_split=5
+RMSE: 273.18
+MAE: 250.83
+MAPE: 74.75%
+SMAPE: 50.35%
+MSE: 74626.22
+
+--- Fold 2 ---
+Train: 2018-01 - 2021-12
+Val: 2022-01 - 2022-12
+Mejores parámetros: n_estimators=100, max_depth=10, min_samples_split=5
+RMSE: 378.12
+MAE: 315.76
+MAPE: 38.06%
+SMAPE: 49.95%
+MSE: 142978.33
+
+--- Fold 3 ---
+Train: 2018-01 - 2022-12
+Val: 2023-01 - 2023-12
+Mejores parámetros: n_estimators=200, max_depth=10, min_samples_split=2
+RMSE: 209.94
+MAE: 192.52
+MAPE: 41.76%
+SMAPE: 35.28%
+MSE: 44075.60
+
+--- Fold 4 ---
+Train: 2018-01 - 2023-12
+Val: 2024-01 - 2024-12
+Mejores parámetros: n_estimators=100, max_depth=10, min_samples_split=2
+RMSE: 228.70
+MAE: 205.21
+MAPE: 29.35%
+SMAPE: 32.32%
+MSE: 52304.86
+
+--------------------------------------------------
+Métricas promedio en validación cruzada
+--------------------------------------------------
+RMSE: 272.49
+MAE: 241.08
+MAPE: 45.98%
+SMAPE: 41.97%
+MSE: 78496.25
+
+--------------------------------------------------
+Evaluación final en Test (2025) - Random Forest
+--------------------------------------------------
+Mejores parámetros: {'estimator__max_depth': 5, 'estimator__min_samples_split': 2, 'estimator__n_estimators': 200}
+RMSE: 331.27
+MAE: 310.22
+MAPE: 141.30%
+SMAPE: 69.05%
+MSE: 109739.14
+
+Errores por mes (Test 2025):
+Enero: -220
+Febrero: -197
+Marzo: -227
+Abril: -397
+Mayo: -377
+Junio: -427
+Julio: -334
+Agosto: -87
+Septiembre: -255
+Octubre: -325
+Noviembre: -543
+Diciembre: -334
+
+
+Resultados del modelo XGBoost:
+--------------------------------------------------
+Validación cruzada - XGBoost (D04)
+--------------------------------------------------
+
+--- Fold 1 ---
+Train: 2018-01 - 2020-12
+Val: 2021-01 - 2021-12
+Mejores parámetros: n_estimators=100, max_depth=5, learning_rate=0.01, subsample=0.8, colsample_bytree=1.0
+RMSE: 346.90
+MAE: 323.75
+MAPE: 98.00%
+SMAPE: 60.32%
+MSE: 120340.54
+
+--- Fold 2 ---
+Train: 2018-01 - 2021-12
+Val: 2022-01 - 2022-12
+Mejores parámetros: n_estimators=100, max_depth=7, learning_rate=0.01, subsample=0.8, colsample_bytree=0.8
+RMSE: 285.00
+MAE: 242.96
+MAPE: 30.61%
+SMAPE: 35.65%
+MSE: 81226.24
+
+--- Fold 3 ---
+Train: 2018-01 - 2022-12
+Val: 2023-01 - 2023-12
+Mejores parámetros: n_estimators=100, max_depth=3, learning_rate=0.1, subsample=0.8, colsample_bytree=0.8
+RMSE: 216.34
+MAE: 194.53
+MAPE: 43.46%
+SMAPE: 35.67%
+MSE: 46803.34
+
+--- Fold 4 ---
+Train: 2018-01 - 2023-12
+Val: 2024-01 - 2024-12
+Mejores parámetros: n_estimators=100, max_depth=7, learning_rate=0.01, subsample=0.8, colsample_bytree=1.0
+RMSE: 225.66
+MAE: 201.18
+MAPE: 28.78%
+SMAPE: 31.48%
+MSE: 50923.18
+
+--------------------------------------------------
+Métricas promedio en validación cruzada
+--------------------------------------------------
+RMSE: 268.48
+MAE: 240.61
+MAPE: 50.21%
+SMAPE: 40.78%
+MSE: 74823.33
+
+--------------------------------------------------
+Evaluación final en Test (2025) - XGBoost
+--------------------------------------------------
+Mejores parámetros: {'estimator__colsample_bytree': 0.8, 'estimator__learning_rate': 0.01, 'estimator__max_depth': 9, 'estimator__n_estimators': 100, 'estimator__subsample': 0.8}
+RMSE: 312.57
+MAE: 295.66
+MAPE: 137.06%
+SMAPE: 67.43%
+MSE: 97697.70
+
+Errores por mes (Test 2025):
+Enero: -219
+Febrero: -249
+Marzo: -245
+Abril: -359
+Mayo: -299
+Junio: -337
+Julio: -291
+Agosto: -91
+Septiembre: -280
+Octubre: -322
+Noviembre: -548
+Diciembre: -309
+
+
+Resultados del modelo LightGBM:
+--------------------------------------------------
+Validación cruzada - LightGBM (D04)
+--------------------------------------------------
+
+--- Fold 1 ---
+Train: 2018-01 - 2020-12
+Val: 2021-01 - 2021-12
+Mejores parámetros: n_estimators=100, max_depth=3, learning_rate=0.01, subsample=0.8, colsample_bytree=0.8
+RMSE: 315.55
+MAE: 287.38
+MAPE: 89.79%
+SMAPE: 55.63%
+MSE: 99572.22
+
+--- Fold 2 ---
+Train: 2018-01 - 2021-12
+Val: 2022-01 - 2022-12
+Mejores parámetros: n_estimators=100, max_depth=3, learning_rate=0.01, subsample=0.8, colsample_bytree=0.8
+RMSE: 298.92
+MAE: 259.47
+MAPE: 34.70%
+SMAPE: 38.22%
+MSE: 89351.93
+
+--- Fold 3 ---
+Train: 2018-01 - 2022-12
+Val: 2023-01 - 2023-12
+Mejores parámetros: n_estimators=100, max_depth=3, learning_rate=0.01, subsample=0.8, colsample_bytree=0.8
+RMSE: 206.54
+MAE: 186.87
+MAPE: 39.92%
+SMAPE: 34.52%
+MSE: 42660.02
+
+--- Fold 4 ---
+Train: 2018-01 - 2023-12
+Val: 2024-01 - 2024-12
+Mejores parámetros: n_estimators=100, max_depth=3, learning_rate=0.01, subsample=0.8, colsample_bytree=0.8
+RMSE: 219.73
+MAE: 184.35
+MAPE: 26.37%
+SMAPE: 28.30%
+MSE: 48282.93
+
+--------------------------------------------------
+Métricas promedio en validación cruzada
+--------------------------------------------------
+RMSE: 260.19
+MAE: 229.52
+MAPE: 47.69%
+SMAPE: 39.17%
+MSE: 69966.77
+
+--------------------------------------------------
+Evaluación final en Test (2025) - LightGBM
+--------------------------------------------------
+Mejores parámetros: {'estimator__colsample_bytree': 0.8, 'estimator__learning_rate': 0.01, 'estimator__max_depth': 3, 'estimator__n_estimators': 100, 'estimator__subsample': 0.8}
+RMSE: 297.17
+MAE: 279.47
+MAPE: 130.98%
+SMAPE: 65.08%
+MSE: 88308.78
+
+Errores por mes (Test 2025):
+Enero: -237
+Febrero: -327
+Marzo: -281
+Abril: -300
+Mayo: -236
+Junio: -334
+Julio: -211
+Agosto: -74
+Septiembre: -264
+Octubre: -262
+Noviembre: -536
+Diciembre: -290
+
+
+Resultados del modelo KNN:
+
+--------------------------------------------------
+Validación cruzada - KNN Regression (D04)
+--------------------------------------------------
+
+--- Fold 1 ---
+Train: 2018-01 - 2020-12
+Val: 2021-01 - 2021-12
+Mejores parámetros: n_neighbors=3, weights=uniform, p=1
+RMSE: 226.28
+MAE: 197.36
+MAPE: 62.54%
+SMAPE: 42.35%
+MSE: 51201.14
+
+--- Fold 2 ---
+Train: 2018-01 - 2021-12
+Val: 2022-01 - 2022-12
+Mejores parámetros: n_neighbors=3, weights=distance, p=1
+RMSE: 309.86
+MAE: 266.12
+MAPE: 33.41%
+SMAPE: 40.17%
+MSE: 96013.36
+
+--- Fold 3 ---
+Train: 2018-01 - 2022-12
+Val: 2023-01 - 2023-12
+Mejores parámetros: n_neighbors=5, weights=distance, p=1
+RMSE: 196.05
+MAE: 174.52
+MAPE: 36.05%
+SMAPE: 32.19%
+MSE: 38437.16
+
+--- Fold 4 ---
+Train: 2018-01 - 2023-12
+Val: 2024-01 - 2024-12
+Mejores parámetros: n_neighbors=5, weights=distance, p=1
+RMSE: 244.68
+MAE: 210.08
+MAPE: 29.85%
+SMAPE: 33.23%
+MSE: 59866.32
+
+--------------------------------------------------
+Métricas promedio en validación cruzada
+--------------------------------------------------
+RMSE: 244.22
+MAE: 212.02
+MAPE: 40.46%
+SMAPE: 36.98%
+MSE: 61379.50
+
+--------------------------------------------------
+Evaluación final en Test (2025) - KNN Regression
+--------------------------------------------------
+Mejores parámetros: {'estimator__n_neighbors': 10, 'estimator__p': 2, 'estimator__weights': 'uniform'}
+RMSE: 310.16
+MAE: 290.97
+MAPE: 133.58%
+SMAPE: 66.69%
+MSE: 96197.92
+
+Errores por mes (Test 2025):
+Enero: -233
+Febrero: -240
+Marzo: -354
+Abril: -373
+Mayo: -300
+Junio: -346
+Julio: -305
+Agosto: -52
+Septiembre: -204
+Octubre: -246
+Noviembre: -516
+Diciembre: -324

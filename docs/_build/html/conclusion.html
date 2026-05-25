@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Conclusiones &#8212; Análisis y Predicción de Comparendos Electrónicos en Barranquilla</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'conclusion';</script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Modelado Predictivo de la Infracción C32" href="modelado_infraccion_c32.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="introduccion.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_uninorte.png" class="logo__image only-light" alt="Análisis y Predicción de Comparendos Electrónicos en Barranquilla - Home"/>
+    <script>document.write(`<img src="_static/logo_uninorte.png" class="logo__image only-dark" alt="Análisis y Predicción de Comparendos Electrónicos en Barranquilla - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="introduccion.html">
+                    Introducción
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="exploracion_inicial.html">Exploración Inicial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analisis_univariado.html">Análisis Univariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analisis_bivariado.html">Análisis Bivariado</a></li>
+<li class="toctree-l1"><a class="reference internal" href="georreferenciacion.html">Georreferenciación</a></li>
+<li class="toctree-l1"><a class="reference internal" href="descomposicion_temporal.html">Descomposición Temporal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelado_infraccion_c29.html">Modelado Predictivo de la Infracción C29</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelado_infraccion_c02.html">Modelado Predictivo de la Infracción C02</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelado_infraccion_c03.html">Modelado Predictivo de la Infracción C03</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelado_infraccion_d04.html">Modelado Predictivo de la Infracción D04</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modelado_infraccion_c32.html">Modelado Predictivo de la Infracción C32</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Conclusiones</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/DAVIDML2005/Project-Traffic-Infraction-Forecasting" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DAVIDML2005/Project-Traffic-Infraction-Forecasting/edit/main/docs/conclusion.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/DAVIDML2005/Project-Traffic-Infraction-Forecasting/issues/new?title=Issue%20on%20page%20%2Fconclusion.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/conclusion.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Conclusiones</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-de-hallazgos-fundamentales">Resumen de Hallazgos Fundamentales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracterizacion-del-fenomeno-y-hallazgos-del-analisis-exploratorio">Caracterización del Fenómeno y Hallazgos del Análisis Exploratorio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-y-frecuencia-de-infracciones">Distribución y Frecuencia de Infracciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comportamientos-temporales-heterogeneos">Comportamientos Temporales Heterogéneos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-comparativa-de-modelos-predictivos">Evaluación Comparativa de Modelos Predictivos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inexistencia-de-un-modelo-universal">Inexistencia de un Modelo Universal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-estadisticos-clasicos-vs-aprendizaje-automatico">Modelos Estadísticos Clásicos vs. Aprendizaje Automático</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-problema-de-la-validacion-cruzada-como-indicador-de-desempeno-futuro">El problema de la Validación Cruzada como Indicador de Desempeño Futuro</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-papel-de-la-tendencia-en-el-desempeno-predictivo">El papel de la Tendencia en el Desempeño Predictivo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pronosticos-para-2026-e-implicaciones-para-la-gestion-publica">Pronósticos para 2026 e Implicaciones para la Gestión Pública</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tendencias-proyectadas">Tendencias Proyectadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicaciones-para-las-autoridades-de-transito">Implicaciones para las Autoridades de Tránsito</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-del-estudio-y-lineas-de-trabajo-futuro">Limitaciones del Estudio y Líneas de Trabajo Futuro</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-identificadas">Limitaciones Identificadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-en-los-datos-disponibles">Limitaciones en los Datos Disponibles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-metodologicas">Limitaciones Metodológicas</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineas-de-trabajo-futuro">Líneas de Trabajo Futuro</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribucion-original-y-aporte-al-conocimiento">Contribución Original y Aporte al Conocimiento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexion-final">Reflexión Final</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="conclusiones">
+<h1>Conclusiones<a class="headerlink" href="#conclusiones" title="Link to this heading">#</a></h1>
+<section id="resumen-de-hallazgos-fundamentales">
+<h2>Resumen de Hallazgos Fundamentales<a class="headerlink" href="#resumen-de-hallazgos-fundamentales" title="Link to this heading">#</a></h2>
+<p>El presente estudio desarrolló un análisis integral y un modelado predictivo de los comparendos electrónicos en la ciudad de Barranquilla para el período 2018-2025, abarcando cinco infracciones de mayor relevancia: C29 (exceso de velocidad), C02 (estacionamiento en sitios prohibidos), C03 (bloquear calzada o intersección), D04 (no detenerse ante una luz roja o amarilla de semáforo) y C32 (no respetar el paso de peatones). Los resultados obtenidos permiten extraer conclusiones significativas tanto sobre la naturaleza del fenómeno como sobre la aplicabilidad de diferentes enfoques de modelado predictivo en el contexto de la movilidad urbana.</p>
+</section>
+<section id="caracterizacion-del-fenomeno-y-hallazgos-del-analisis-exploratorio">
+<h2>Caracterización del Fenómeno y Hallazgos del Análisis Exploratorio<a class="headerlink" href="#caracterizacion-del-fenomeno-y-hallazgos-del-analisis-exploratorio" title="Link to this heading">#</a></h2>
+<section id="distribucion-y-frecuencia-de-infracciones">
+<h3>Distribución y Frecuencia de Infracciones<a class="headerlink" href="#distribucion-y-frecuencia-de-infracciones" title="Link to this heading">#</a></h3>
+<p>El análisis univariado y bivariado permitió identificar que la infracción C29 (exceso de velocidad) constituye la más frecuente del dataset, concentrando aproximadamente el 45% del total de comparendos electrónicos, lo que la convierte en el objeto de estudio predominante y en el principal desafío para la gestión de la seguridad vial en la ciudad. En el extremo opuesto, la infracción C14, asociada exclusivamente a cámaras de carril bus, presentó los menores volúmenes de registro debido a su reciente incorporación al sistema integrado de fotodetección, con apenas tres meses de datos disponibles.</p>
+</section>
+<section id="comportamientos-temporales-heterogeneos">
+<h3>Comportamientos Temporales Heterogéneos<a class="headerlink" href="#comportamientos-temporales-heterogeneos" title="Link to this heading">#</a></h3>
+<p>Un hallazgo central del estudio es que no todas las infracciones siguen patrones temporales homogéneos. La descomposición STL aplicada a cada serie reveló comportamientos sustancialmente diferentes:</p>
+<ul class="simple">
+<li><p><strong>C29 (exceso de velocidad)</strong>: Presentó una tendencia decreciente significativa (-18.9 comparendos/mes, R²=0.58) con estacionalidad muy débil (5.66% de la varianza), indicando una reducción sostenida en el tiempo posiblemente asociada a un efecto disuasivo de las cámaras o a cambios en los patrones de movilidad.</p></li>
+<li><p><strong>C02 (estacionamiento prohibido)</strong>: Serie estacionaria sin tendencia significativa (p=0.28) y estacionalidad débil (5.2%), lo que sugiere un comportamiento estable alrededor de una media constante.</p></li>
+<li><p><strong>C03 (bloqueo de calzada)</strong>: Única infracción con tendencia creciente significativa (+10.3 comparendos/mes, R²=0.515), lo que la convierte en un foco de atención prioritario para las autoridades, dado su crecimiento sistemático a lo largo del período estudiado.</p></li>
+<li><p><strong>D04 (paso de semáforo en rojo)</strong>: Tendencia negativa débil (pendiente -2.10) pero con una estacionalidad marcada (25.9% de la varianza), reflejando patrones cíclicos predecibles.</p></li>
+<li><p><strong>C32 (peatones)</strong>: Serie estacionaria sin tendencia (p=0.27), pero con alta variabilidad y valores atípicos que dificultan su predicción.</p></li>
+</ul>
+<p>Esta heterogeneidad de comportamientos justifica metodológicamente la decisión de modelar cada infracción de manera independiente, en lugar de aplicar un enfoque único para todas.</p>
+</section>
+</section>
+<section id="evaluacion-comparativa-de-modelos-predictivos">
+<h2>Evaluación Comparativa de Modelos Predictivos<a class="headerlink" href="#evaluacion-comparativa-de-modelos-predictivos" title="Link to this heading">#</a></h2>
+<section id="inexistencia-de-un-modelo-universal">
+<h3>Inexistencia de un Modelo Universal<a class="headerlink" href="#inexistencia-de-un-modelo-universal" title="Link to this heading">#</a></h3>
+<p>El resultado más relevante del estudio es que no existe un único modelo capaz de sobresalir en la predicción de todas las infracciones. La efectividad de cada enfoque depende críticamente de las características específicas de cada serie temporal:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Infracción</p></th>
+<th class="head"><p>Mejor modelo</p></th>
+<th class="head"><p>Característica clave explotada</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C29</p></td>
+<td><p>Holt-Winters (tendencia amortiguada)</p></td>
+<td><p>Adaptación a aceleración de la caída en 2025</p></td>
+</tr>
+<tr class="row-odd"><td><p>C02</p></td>
+<td><p>Holt-Winters (SES)</p></td>
+<td><p>Estacionariedad y robustez ante outliers</p></td>
+</tr>
+<tr class="row-even"><td><p>C03</p></td>
+<td><p>Ridge (regresión regularizada)</p></td>
+<td><p>Captura de tendencia creciente lineal</p></td>
+</tr>
+<tr class="row-odd"><td><p>D04</p></td>
+<td><p>SARIMA(1,0,0)(0,0,0)[12] (AR(1) puro)</p></td>
+<td><p>Adaptación a cambio de régimen por ausencia de estacionalidad forzada</p></td>
+</tr>
+<tr class="row-even"><td><p>C32</p></td>
+<td><p>SARIMA(1,0,1)(0,0,0)[12] (ARMA(1,1))</p></td>
+<td><p>Componente MA para absorber shocks rápidamente</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="modelos-estadisticos-clasicos-vs-aprendizaje-automatico">
+<h3>Modelos Estadísticos Clásicos vs. Aprendizaje Automático<a class="headerlink" href="#modelos-estadisticos-clasicos-vs-aprendizaje-automatico" title="Link to this heading">#</a></h3>
+<p>Contrario a lo que podría esperarse en la era del “big data” y el aprendizaje automático, los modelos estadísticos clásicos (Holt-Winters, ARIMA, SARIMA, Ridge) superaron consistentemente a los modelos de ensamble basados en árboles (Random Forest, XGBoost, LightGBM) en el conjunto de prueba (2025). Esta observación se explica por varias razones:</p>
+<ol class="arabic simple">
+<li><p><strong>Volumen de datos limitado</strong>: Con series temporales de longitud moderada (7 años), los modelos complejos tienden a sobreajustar patrones específicos del pasado que no se generalizan al futuro.</p></li>
+<li><p><strong>Ausencia de relaciones no lineales significativas</strong>: La estructura dominante en las series analizadas fue lineal (tendencias) o de dependencia temporal simple (autorregresiva), para lo cual los modelos lineales son óptimos.</p></li>
+<li><p><strong>Shocks estructurales</strong>: Los cambios abruptos observados en 2025 penalizaron desproporcionadamente a los modelos de machine learning, que extrapolaron patrones históricos sin capacidad de adaptación rápida.</p></li>
+</ol>
+</section>
+<section id="el-problema-de-la-validacion-cruzada-como-indicador-de-desempeno-futuro">
+<h3>El problema de la Validación Cruzada como Indicador de Desempeño Futuro<a class="headerlink" href="#el-problema-de-la-validacion-cruzada-como-indicador-de-desempeno-futuro" title="Link to this heading">#</a></h3>
+<p>Un hallazgo metodológicamente relevante es que el mejor modelo en validación cruzada no siempre fue el mejor en el conjunto de prueba. Esto ocurrió de manera especialmente notoria en:</p>
+<ul class="simple">
+<li><p><strong>C29</strong>: SARIMA fue superior en CV (RMSE 729) pero Holt-Winters lo superó ampliamente en test (RMSE 479 vs 740).</p></li>
+<li><p><strong>D04</strong>: ARIMA fue mejor en CV (RMSE 232) pero SARIMA(1,0,0)(0,0,0)[12] fue abrumadoramente superior en test (RMSE 98 vs 296).</p></li>
+<li><p><strong>C32</strong>: Lasso fue mejor en CV (RMSE 15.9) pero SARIMA(1,0,1) fue muy superior en test (RMSE 7.9 vs 18.8).</p></li>
+</ul>
+<p>Esta discrepancia se explica por la presencia de cambios estructurales no anticipados en 2025 (aceleración de la caída en C29, desplome en D04 y C32), que invalidaron los patrones aprendidos durante el período de validación cruzada (2018-2024). La lección es crucial para aplicaciones prácticas: el desempeño histórico no garantiza el desempeño futuro, y los modelos más simples y adaptables pueden ser preferibles ante entornos no estacionarios.</p>
+</section>
+<section id="el-papel-de-la-tendencia-en-el-desempeno-predictivo">
+<h3>El papel de la Tendencia en el Desempeño Predictivo<a class="headerlink" href="#el-papel-de-la-tendencia-en-el-desempeno-predictivo" title="Link to this heading">#</a></h3>
+<p>La presencia o ausencia de tendencia determinó de manera fundamental qué modelo resultó más adecuado:</p>
+<ul class="simple">
+<li><p><strong>Con tendencia creciente (C03)</strong>: Ridge (regresión con tendencia explícita) superó a modelos estacionarios que subestimaron sistemáticamente.</p></li>
+<li><p><strong>Con tendencia decreciente acelerada (C29)</strong>: Holt-Winters con tendencia amortiguada permitió una adaptación gradual que otros modelos no lograron.</p></li>
+<li><p><strong>Sin tendencia (C02, C32)</strong>: Modelos estacionarios (SES, ARMA) fueron suficientes y superiores a enfoques que introducían tendencias adulteradas.</p></li>
+</ul>
+</section>
+</section>
+<section id="pronosticos-para-2026-e-implicaciones-para-la-gestion-publica">
+<h2>Pronósticos para 2026 e Implicaciones para la Gestión Pública<a class="headerlink" href="#pronosticos-para-2026-e-implicaciones-para-la-gestion-publica" title="Link to this heading">#</a></h2>
+<section id="tendencias-proyectadas">
+<h3>Tendencias Proyectadas<a class="headerlink" href="#tendencias-proyectadas" title="Link to this heading">#</a></h3>
+<p>Los pronósticos generados con los mejores modelos para cada infracción permiten anticipar el siguiente panorama para 2026:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Infracción</p></th>
+<th class="head"><p>Pronóstico 2026 (promedio mensual)</p></th>
+<th class="head"><p>Tendencia proyectada</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>C29 (exceso velocidad)</p></td>
+<td><p>803 - 989</p></td>
+<td><p>Decreciente (de 989 a 803)</p></td>
+</tr>
+<tr class="row-odd"><td><p>C02 (estacionamiento)</p></td>
+<td><p>1940 constante</p></td>
+<td><p>Estable</p></td>
+</tr>
+<tr class="row-even"><td><p>C03 (bloqueo calzada)</p></td>
+<td><p>809 - 847</p></td>
+<td><p>Creciente (especialmente oct-dic)</p></td>
+</tr>
+<tr class="row-odd"><td><p>D04 (semáforo rojo)</p></td>
+<td><p>141 - 262</p></td>
+<td><p>Decreciente acelerada</p></td>
+</tr>
+<tr class="row-even"><td><p>C32 (peatones)</p></td>
+<td><p>3 - 5</p></td>
+<td><p>Muy baja, estable</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="implicaciones-para-las-autoridades-de-transito">
+<h3>Implicaciones para las Autoridades de Tránsito<a class="headerlink" href="#implicaciones-para-las-autoridades-de-transito" title="Link to this heading">#</a></h3>
+<p>Con base en estos pronósticos, se derivan las siguientes recomendaciones para la gestión de la seguridad vial en Barranquilla:</p>
+<ol class="arabic simple">
+<li><p><strong>Priorizar la infracción C03 (bloqueo de calzada)</strong> : Es la única con tendencia creciente confirmada y proyectada. Se recomienda intensificar los controles en zonas y horarios críticos, así como campañas educativas dirigidas a conductores de vehículos particulares y de carga.</p></li>
+<li><p><strong>Mantener los esfuerzos en C29 (exceso de velocidad)</strong> : La tendencia decreciente proyectada sugiere que las cámaras de fotodetección están cumpliendo su función persuasiva. Sin embargo, la caída acelerada en 2025 debe ser monitoreada para confirmar si responde a una mejora sostenida o a factores coyunturales.</p></li>
+<li><p><strong>Evaluar las causas del desplome en D04 (paso de semáforo en rojo)</strong> : La disminución proyectada de 262 a 141 comparendos mensuales a lo largo de 2026 representa una reducción significativa. Debe investigarse si esto responde a mejoras en la infraestructura semafórica, cambios en el comportamiento de los conductores, o simplemente a una reducción en la operatividad de las cámaras.</p></li>
+<li><p><strong>Monitorear la evolución de C02 (estacionamiento prohibido)</strong> : Su estabilidad proyectada alrededor de 1940 comparendos mensuales indica que es un problema persistente que requiere intervenciones estructurales (mayor disponibilidad de parqueaderos, mejor señalización, etc.).</p></li>
+<li><p><strong>Interpretar con cautela los pronósticos de C32 (peatones)</strong> : Dado el bajo volumen proyectado (3-5 comparendos mensuales), la relevancia práctica de estas estimaciones es limitada. Sin embargo, cualquier incremento en esta infracción debe ser atendido con prioridad por su impacto directo en la seguridad de los peatones.</p></li>
+</ol>
+</section>
+</section>
+<section id="limitaciones-del-estudio-y-lineas-de-trabajo-futuro">
+<h2>Limitaciones del Estudio y Líneas de Trabajo Futuro<a class="headerlink" href="#limitaciones-del-estudio-y-lineas-de-trabajo-futuro" title="Link to this heading">#</a></h2>
+<section id="limitaciones-identificadas">
+<h3>Limitaciones Identificadas<a class="headerlink" href="#limitaciones-identificadas" title="Link to this heading">#</a></h3>
+<p>El presente estudio reconoce las siguientes limitaciones que deben ser consideradas al interpretar los resultados:</p>
+<section id="limitaciones-en-los-datos-disponibles">
+<h4>Limitaciones en los Datos Disponibles<a class="headerlink" href="#limitaciones-en-los-datos-disponibles" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Ausencia de hora real</strong>: Todos los registros tienen hora normalizada a las 12:00 AM, impidiendo análisis de franjas horarias dentro del día y la identificación de patrones de infracción por hora pico o nocturnas.</p></li>
+<li><p><strong>Sin identificación geográfica precisa</strong>: La dirección de la cámara está en formato texto, no en coordenadas (latitud/longitud), limitando análisis espaciales avanzados como clusters de infracciones, mapas de calor o modelos espaciotemporales.</p></li>
+<li><p><strong>Inconsistencias en la nomenclatura de cámaras</strong>: Cambios en las denominaciones a lo largo del tiempo y casos de duplicados dificultaron el seguimiento individualizado por punto de control.</p></li>
+<li><p><strong>Fechas de operación desconocidas</strong>: No se dispone de la fecha exacta en que cada cámara inició o cesó operaciones, solo los registros generados.</p></li>
+<li><p><strong>Sin información del infractor</strong>: No se incluyen variables demográficas (edad, género, tipo de licencia, reincidencia individual), lo que impide análisis de perfiles de riesgo y segmentación de conductores.</p></li>
+</ul>
+</section>
+<section id="limitaciones-metodologicas">
+<h4>Limitaciones Metodológicas<a class="headerlink" href="#limitaciones-metodologicas" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Modelos univariados</strong>: Los modelos se construyeron únicamente a partir de la información histórica de comparendos, sin incorporar variables externas como condiciones climáticas, calendarios de eventos masivos, intervenciones en vías, cambios normativos, o fluctuaciones en el flujo vehicular.</p></li>
+<li><p><strong>Cambio estructural en 2025</strong>: La disminución repentina de comparendos en 2025 no pudo ser anticipada por ningún modelo, lo que sugiere la necesidad de integrar información contextual para explicar estos quiebres.</p></li>
+<li><p><strong>Inexistencia de patrones consistentes</strong>: La alta variabilidad año a año y la falta de recurrencia en los patrones de infracción limitaron la capacidad predictiva incluso de modelos complejos.</p></li>
+</ul>
+</section>
+</section>
+<section id="lineas-de-trabajo-futuro">
+<h3>Líneas de Trabajo Futuro<a class="headerlink" href="#lineas-de-trabajo-futuro" title="Link to this heading">#</a></h3>
+<p>Con base en las limitaciones identificadas, se proponen las siguientes líneas de investigación futura:</p>
+<ol class="arabic simple">
+<li><p><strong>Modelos multivariados</strong>: Incorporar variables explicativas adicionales como flujo vehicular (sensores de tráfico), condiciones meteorológicas (precipitación, visibilidad), calendario de festividades y eventos especiales, y cambios en la normativa de tránsito.</p></li>
+<li><p><strong>Análisis espacial avanzado</strong>: Georreferenciar con precisión las cámaras (coordenadas) para implementar modelos espaciotemporales que identifiquen clusters de infracciones y patrones de contagio entre zonas adyacentes.</p></li>
+<li><p><strong>Evaluación de impacto</strong>: Diseñar un estudio cuasiexperimental que evalúe el efecto causal de la instalación de nuevas cámaras sobre la reducción de infracciones y siniestros, utilizando metodologías de diferencias en diferencias o variables instrumentales.</p></li>
+<li><p><strong>Integración con datos de siniestralidad</strong>: Vincular la base de comparendos con registros de accidentes de tránsito para evaluar si las reducciones en infracciones se traducen efectivamente en menor siniestralidad y fatalidades.</p></li>
+<li><p><strong>Verificación del pronóstico 2026</strong>: Una vez que la Alcaldía de Barranquilla publique los datos de comparendos para 2026, se recomienda comparar los pronósticos generados con los valores reales para validar (o refutar) la bondad de los modelos seleccionados.</p></li>
+</ol>
+</section>
+</section>
+<section id="contribucion-original-y-aporte-al-conocimiento">
+<h2>Contribución Original y Aporte al Conocimiento<a class="headerlink" href="#contribucion-original-y-aporte-al-conocimiento" title="Link to this heading">#</a></h2>
+<p>El presente estudio aborda una brecha significativa en la literatura especializada. Si bien existen antecedentes internacionales de aplicación de modelos predictivos a series temporales de infracciones de tránsito, esta investigación constituye la primera comparativa sistemática y exhaustiva entre múltiples enfoques de modelado (estadísticos clásicos, regularizados, ensambles de árboles y basados en similitud) aplicada específicamente al análisis de comparendos electrónicos en Colombia y, más particularmente, en la ciudad de Barranquilla.</p>
+<p>La principal contribución del trabajo es doble: por un lado, aporta evidencia empírica local sobre el comportamiento de las infracciones y la efectividad de diferentes técnicas predictivas; por otro lado, ofrece recomendaciones prácticas concretas para las autoridades de tránsito sobre qué modelo utilizar para cada tipo de infracción y cómo interpretar los pronósticos generados.</p>
+</section>
+<section id="reflexion-final">
+<h2>Reflexión Final<a class="headerlink" href="#reflexion-final" title="Link to this heading">#</a></h2>
+<p>En un contexto de transformación digital de la gestión pública, donde los datos abundan pero la capacidad de convertirlos en inteligencia accionable es aún limitada, esta investigación demuestra que la sofisticación del modelo no garantiza su utilidad práctica. Los modelos estadísticos más simples, cuando están bien adaptados a las características específicas de cada fenómeno, pueden superar a enfoques computacionalmente más complejos, especialmente en escenarios de cambios estructurales no anticipados.</p>
+<p>La lección más valiosa del estudio quizás no sea cuál modelo ganó, sino la importancia de comprender la naturaleza del fenómeno antes de seleccionar la herramienta predictiva. La heterogeneidad de comportamientos entre infracciones, la presencia o ausencia de tendencia, la fuerza de la estacionalidad, y la ocurrencia de quiebres estructurales son factores que deben guiar la selección metodológica, en lugar de aplicar mecánicamente el algoritmo de moda.</p>
+<p>Finalmente, este trabajo aspira a contribuir, aunque sea modestamente, a la construcción de ciudades más seguras, ordenadas y humanas, donde la tecnología al servicio de la movilidad se traduzca efectivamente en la salvaguarda de la vida y el bienestar de todos los actores viales de Barranquilla. Los pronósticos aquí presentados para 2026 no son un veredicto inmutable, sino una herramienta para la acción informada: su verdadero valor se materializará en la medida en que las autoridades los utilicen para anticipar problemas, asignar recursos de manera eficiente y diseñar intervenciones basadas en evidencia.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modelado_infraccion_c32.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modelado Predictivo de la Infracción C32</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resumen-de-hallazgos-fundamentales">Resumen de Hallazgos Fundamentales</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracterizacion-del-fenomeno-y-hallazgos-del-analisis-exploratorio">Caracterización del Fenómeno y Hallazgos del Análisis Exploratorio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-y-frecuencia-de-infracciones">Distribución y Frecuencia de Infracciones</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comportamientos-temporales-heterogeneos">Comportamientos Temporales Heterogéneos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluacion-comparativa-de-modelos-predictivos">Evaluación Comparativa de Modelos Predictivos</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inexistencia-de-un-modelo-universal">Inexistencia de un Modelo Universal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-estadisticos-clasicos-vs-aprendizaje-automatico">Modelos Estadísticos Clásicos vs. Aprendizaje Automático</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-problema-de-la-validacion-cruzada-como-indicador-de-desempeno-futuro">El problema de la Validación Cruzada como Indicador de Desempeño Futuro</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#el-papel-de-la-tendencia-en-el-desempeno-predictivo">El papel de la Tendencia en el Desempeño Predictivo</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pronosticos-para-2026-e-implicaciones-para-la-gestion-publica">Pronósticos para 2026 e Implicaciones para la Gestión Pública</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tendencias-proyectadas">Tendencias Proyectadas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicaciones-para-las-autoridades-de-transito">Implicaciones para las Autoridades de Tránsito</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-del-estudio-y-lineas-de-trabajo-futuro">Limitaciones del Estudio y Líneas de Trabajo Futuro</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-identificadas">Limitaciones Identificadas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-en-los-datos-disponibles">Limitaciones en los Datos Disponibles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#limitaciones-metodologicas">Limitaciones Metodológicas</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineas-de-trabajo-futuro">Líneas de Trabajo Futuro</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribucion-original-y-aporte-al-conocimiento">Contribución Original y Aporte al Conocimiento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflexion-final">Reflexión Final</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Marquez & Cristian Linero
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
