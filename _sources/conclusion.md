@@ -1,4 +1,4 @@
-# Conclusiones
+# Conclusión
 
 ## Resumen de Hallazgos Fundamentales
 
